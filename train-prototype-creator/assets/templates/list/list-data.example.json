@@ -1,0 +1,257 @@
+{
+  "statusBar": {
+    "time": "9:41"
+  },
+  "route": {
+    "from": "上海",
+    "to": "北京"
+  },
+  "calendar": {
+    "toolIconAsset": "listCalendar",
+    "toolChevronAsset": "listCalendarDown",
+    "items": [
+      {
+        "topText": "周日",
+        "topIconAsset": "listCalendarVacation",
+        "bottomText": "端午节",
+        "active": true,
+        "wide": true
+      },
+      {
+        "topText": "周一",
+        "bottomText": "09-25",
+        "wide": true
+      },
+      {
+        "topText": "周二",
+        "bottomText": "24"
+      },
+      {
+        "topText": "周三",
+        "bottomText": "25"
+      },
+      {
+        "topText": "周四",
+        "bottomText": "26"
+      },
+      {
+        "topText": "周五",
+        "bottomText": "27"
+      }
+    ]
+  },
+  "modeTabs": [
+    {
+      "title": "推荐",
+      "subtitle": "¥468 起",
+      "active": true
+    },
+    {
+      "title": "直达",
+      "subtitle": "18 班"
+    },
+    {
+      "title": "过夜",
+      "subtitle": "4 班"
+    },
+    {
+      "title": "中转",
+      "subtitle": "9 班"
+    },
+    {
+      "title": "飞机",
+      "subtitle": "¥820 起"
+    }
+  ],
+  "filters": [
+    {
+      "label": "出发站"
+    },
+    {
+      "label": "到达站"
+    },
+    {
+      "label": "有票方案",
+      "active": true
+    },
+    {
+      "label": "高铁动车"
+    },
+    {
+      "label": "积分兑换"
+    }
+  ],
+  "anchorBanner": {
+    "title": "已为你找到推荐车次",
+    "copy": "优先展示有票、耗时和价格更合适的方案。"
+  },
+  "cards": [
+    {
+      "type": "direct",
+      "selected": true,
+      "tags": [
+        {
+          "label": "曾经买过",
+          "tone": "gray"
+        },
+        {
+          "label": "收藏热度高",
+          "tone": "gray"
+        }
+      ],
+      "depTime": "07:18",
+      "depStation": "上海虹桥",
+      "arrTime": "12:56",
+      "arrStation": "北京南",
+      "duration": "5时38分",
+      "trainNo": "G7088",
+      "price": "553",
+      "discount": "商务座 9.1 折",
+      "note": "发车前 40 分钟可改签到更早车次，适合当天出差。",
+      "seats": [
+        {
+          "label": "二等",
+          "value": "有票"
+        },
+        {
+          "label": "一等",
+          "value": "有票"
+        },
+        {
+          "label": "商务",
+          "value": "无票"
+        }
+      ]
+    },
+    {
+      "type": "direct",
+      "tags": [
+        {
+          "label": "上次浏览",
+          "tone": "gray"
+        }
+      ],
+      "depTime": "08:00",
+      "depStation": "上海虹桥",
+      "arrTime": "12:28",
+      "arrStation": "北京南",
+      "duration": "4时28分",
+      "trainNo": "G7092",
+      "price": "628",
+      "note": "全程耗时最短，适合上午到达后直接开会。",
+      "seats": [
+        {
+          "label": "二等",
+          "value": "有票"
+        },
+        {
+          "label": "一等",
+          "value": "有票"
+        },
+        {
+          "label": "商务",
+          "value": "有票"
+        }
+      ]
+    },
+    {
+      "type": "transfer",
+      "tags": [
+        {
+          "label": "最少耗时",
+          "tone": "orange"
+        },
+        {
+          "label": "人均10分钟内换乘",
+          "tone": "blue"
+        }
+      ],
+      "depTime": "06:53",
+      "depStation": "上海站",
+      "arrTime": "09:48",
+      "arrStation": "北京西站",
+      "duration": "全程18时50分",
+      "transferStation": "南京南站",
+      "waitText": "停28分",
+      "price": "532",
+      "discount": "8.8折",
+      "legs": [
+        {
+          "icon": "one",
+          "mode": "高铁",
+          "seats": [
+            {
+              "label": "二等",
+              "value": "有票"
+            },
+            {
+              "label": "一等",
+              "value": "有票"
+            },
+            {
+              "label": "商务",
+              "value": "无票"
+            }
+          ]
+        },
+        {
+          "icon": "two",
+          "mode": "普快",
+          "seats": [
+            {
+              "label": "硬座",
+              "value": "有票"
+            },
+            {
+              "label": "硬卧",
+              "value": "有票"
+            },
+            {
+              "label": "软卧",
+              "value": "有票"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sortTabs": [
+    {
+      "label": "高级筛选",
+      "asset": "listTabAll"
+    },
+    {
+      "label": "出发最早",
+      "asset": "listTabEarly"
+    },
+    {
+      "label": "耗时最短",
+      "asset": "listTabTime"
+    },
+    {
+      "label": "价格最低",
+      "asset": "listTabPrice"
+    }
+  ],
+  "assets": {
+    "listTitleBarBack": "assets/list-title-bar-back.svg",
+    "listTitleBarChange": "assets/list-title-bar-change.svg",
+    "listTitleBarTicketGrabbing": "assets/list-title-bar-ticket-grabbing.svg",
+    "listTitleBarTicketShare": "assets/list-title-bar-ticket-share.svg",
+    "listCalendar": "assets/list-calendar.svg",
+    "listCalendarDown": "assets/list-calendar-down.svg",
+    "listCalendarVacation": "assets/list-calendar-vacation.svg",
+    "listCardArrow": "assets/list-card-arrow.svg",
+    "listCardExchange": "assets/list-card-exchange.svg",
+    "listCardIdentityCard": "assets/list-card-identity-card.svg",
+    "listCardFuxingtrain": "assets/list-card-fuxingtrain.svg",
+    "listCardDepartureStation": "assets/list-card-departure-station.svg",
+    "listCardDestination": "assets/list-card-destination.svg",
+    "listCardOne": "assets/list-card-one.svg",
+    "listCardTwo": "assets/list-card-two.svg",
+    "listTabAll": "assets/list-tab-all.svg",
+    "listTabEarly": "assets/list-tab-early.svg",
+    "listTabTime": "assets/list-tab-time.svg",
+    "listTabPrice": "assets/list-tab-price.svg"
+  }
+}

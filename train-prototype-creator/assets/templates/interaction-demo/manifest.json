@@ -1,0 +1,30 @@
+{
+  "page": "interaction-demo",
+  "artifact": "final-preview-shell",
+  "status": "draft",
+  "priority": 1,
+  "entry": "./interaction-demo-template.html",
+  "css": "./interaction-demo-template.css",
+  "renderer": "./interaction-demo-template.js",
+  "dataExample": "./interaction-demo-data.example.json",
+  "lockedComponents": [
+    "desktop-shell",
+    "preview-panel",
+    "doc-panel",
+    "preview-tabs",
+    "state-rail",
+    "phone-frame",
+    "doc-section-frame"
+  ],
+  "flexibleAreas": [
+    "preview.frames[].stateRail.items[].phone.template.data",
+    "preview.frames[].stateRail.items[].phone.blocks[]",
+    "doc.sections[]"
+  ],
+  "notes": [
+    "Extracted from interaction-preview-final-v2.html and treated as the fixed shell for final interaction demo HTML deliverables.",
+    "The left preview / right document split view, header rows, tabs, state rail, phone frame, and doc section scaffolding are template-first and should not be re-invented per task.",
+    "When a frame or state maps to home, list, fill, or occupy semantics, the phone body must be rendered through the corresponding page template instead of rebuilding ad hoc phone blocks.",
+    "Future final demos should vary primarily through frame data, template data, fallback blocks for non-core pages, and doc section content."
+  ]
+}

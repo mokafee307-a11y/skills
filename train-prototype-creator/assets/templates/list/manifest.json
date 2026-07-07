@@ -1,0 +1,23 @@
+{
+  "page": "list",
+  "status": "draft",
+  "priority": 1,
+  "entry": "./list-template.html",
+  "css": "./list-template.css",
+  "renderer": "./list-template.js",
+  "dataExample": "./list-data.example.json",
+  "lockedComponents": [
+    "title-bar",
+    "calendar",
+    "head-tabs",
+    "quick-filter-chips",
+    "direct-card",
+    "transfer-card",
+    "bottom-sort-tabbar"
+  ],
+  "notes": [
+    "Use the stabilized list-page source instead of regenerating from prose.",
+    "Use this template first for list pages. Only generate outside the template when new requirements cannot be expressed by token or data injection.",
+    "Do not inherit default banner, tag, or note semantics unless they match the current requirement; list-page differences should be expressed through current task data."
+  ]
+}

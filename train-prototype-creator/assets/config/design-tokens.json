@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "version": "0.1.0-draft",
+    "status": "draft",
+    "sourceType": "figma-export-plus-manual-supplement",
+    "sourceFiles": [
+      "/Users/mokafee/Desktop/token.json"
+    ],
+    "notes": [
+      "Source token.json currently contains color variables only.",
+      "No typography variables or text styles were present in the export payload.",
+      "Spacing tier 2 was added from user instruction.",
+      "Card radius, button size, button radius, and button typography were added from user-provided rule images.",
+      "Font family was supplemented manually: PingFang SC for zh/en UI text, tripnumber for numeric text.",
+      "Title bar, page card padding, bottom bar height, and border width were supplemented manually from user instruction.",
+      "Warning red token was added manually from user instruction: #F5190A.",
+      "Semantic prototype color mapping was added for selected, price, and default highlight states."
+    ]
+  },
+  "primitives": {
+    "layout": {
+      "baseGrid": 4,
+      "extraSpacingTiers": [
+        2
+      ]
+    },
+    "color": {
+      "core": {
+        "blue": {
+          "1": "#3263A6",
+          "4": "#EBF1F8",
+          "5": "#F5F9FF"
+        },
+        "orange": {
+          "1": "#FF5500",
+          "4": "#FFF4EB"
+        },
+        "green": {
+          "1": "#06875A",
+          "4": "#E6FAF3"
+        },
+        "red": {
+          "1": "#F5190A"
+        },
+        "blueGray": {
+          "7": "#E1E7F0",
+          "8": "#EBEFF5",
+          "9": "#F5F7FA"
+        },
+        "neutral": {
+          "1": "#111111",
+          "2": "#555555",
+          "3": "#888888",
+          "5": "#C5C5C5",
+          "9": "#F5F5F5"
+        },
+        "white": "#FFFFFF"
+      },
+      "brand": {
+        "blue": "#3263A6",
+        "orange": "#FF5500"
+      }
+    },
+    "space": {
+      "2": 2,
+      "4": 4,
+      "8": 8,
+      "12": 12,
+      "16": 16,
+      "20": 20,
+      "24": 24,
+      "28": 28,
+      "32": 32
+    },
+    "radius": {
+      "card": {
+        "min": 4,
+        "step": 4,
+        "xs": 4,
+        "s": 8,
+        "m": 16
+      },
+      "button": {
+        "sm": 4,
+        "md": 4,
+        "lg": 6
+      }
+    },
+    "border": {
+      "width": {
+        "hairline": 0.5
+      }
+    },
+    "size": {
+      "button": {
+        "sm": {
+          "height": 32,
+          "paddingInlineMin": 12
+        },
+        "md": {
+          "height": 36,
+          "paddingInlineMin": 12
+        },
+        "lg": {
+          "height": 44,
+          "paddingInlineMin": 12
+        }
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "ui": "PingFang SC",
+        "number": "tripnumber"
+      },
+      "button": {
+        "sm": {
+          "fontFamily": "{primitives.typography.fontFamily.ui}",
+          "fontSize": 13,
+          "fontWeight": 400,
+          "fontWeightName": "Regular"
+        },
+        "md": {
+          "fontFamily": "{primitives.typography.fontFamily.ui}",
+          "fontSize": 15,
+          "fontWeight": 500,
+          "fontWeightName": "Medium"
+        },
+        "lg": {
+          "fontFamily": "{primitives.typography.fontFamily.ui}",
+          "fontSize": 17,
+          "fontWeight": 500,
+          "fontWeightName": "Medium"
+        }
+      }
+    }
+  },
+  "semantic": {
+    "color": {
+      "selected": "{primitives.color.brand.blue}",
+      "price": "{primitives.color.brand.blue}",
+      "highlight": {
+        "positive": "{primitives.color.core.green.1}",
+        "discount": "{primitives.color.core.orange.1}",
+        "warning": "{primitives.color.core.red.1}"
+      },
+      "text": {
+        "strong": "{primitives.color.core.neutral.1}"
+      }
+    },
+    "fontFamily": {
+      "body": "{primitives.typography.fontFamily.ui}",
+      "numeric": "{primitives.typography.fontFamily.number}"
+    },
+    "border": {
+      "defaultWidth": "{primitives.border.width.hairline}"
+    },
+    "titleBar": {
+      "height": 44,
+      "safeAreaInline": 16
+    },
+    "bottomBar": {
+      "height": 54
+    },
+    "card": {
+      "radius": {
+        "compact": "{primitives.radius.card.xs}",
+        "default": "{primitives.radius.card.s}",
+        "emphasis": "{primitives.radius.card.m}"
+      }
+    },
+    "page": {
+      "home": {
+        "queryCard": {
+          "padding": 20
+        },
+        "otherCard": {
+          "padding": 12
+        }
+      },
+      "list": {
+        "card": {
+          "padding": 12
+        }
+      },
+      "fill": {
+        "card": {
+          "padding": 16
+        }
+      },
+      "occupy": {
+        "ticketCard": {
+          "paddingStrategy": "component-default"
+        },
+        "otherCard": {
+          "padding": 12
+        }
+      }
+    },
+    "button": {
+      "sm": {
+        "height": "{primitives.size.button.sm.height}",
+        "borderRadius": "{primitives.radius.button.sm}",
+        "paddingInlineMin": "{primitives.size.button.sm.paddingInlineMin}",
+        "fontFamily": "{primitives.typography.button.sm.fontFamily}",
+        "fontSize": "{primitives.typography.button.sm.fontSize}",
+        "fontWeight": "{primitives.typography.button.sm.fontWeight}"
+      },
+      "md": {
+        "height": "{primitives.size.button.md.height}",
+        "borderRadius": "{primitives.radius.button.md}",
+        "paddingInlineMin": "{primitives.size.button.md.paddingInlineMin}",
+        "fontFamily": "{primitives.typography.button.md.fontFamily}",
+        "fontSize": "{primitives.typography.button.md.fontSize}",
+        "fontWeight": "{primitives.typography.button.md.fontWeight}"
+      },
+      "lg": {
+        "height": "{primitives.size.button.lg.height}",
+        "borderRadius": "{primitives.radius.button.lg}",
+        "paddingInlineMin": "{primitives.size.button.lg.paddingInlineMin}",
+        "fontFamily": "{primitives.typography.button.lg.fontFamily}",
+        "fontSize": "{primitives.typography.button.lg.fontSize}",
+        "fontWeight": "{primitives.typography.button.lg.fontWeight}"
+      }
+    }
+  }
+}

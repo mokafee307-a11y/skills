@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train Occupy Template</title>
+  <link rel="stylesheet" href="./occupy-template.css" />
+</head>
+<body>
+  <div id="occupy-template-root"></div>
+
+  <script id="occupy-template-data" type="application/json">
+__OCCUPY_TEMPLATE_DATA__
+  </script>
+  <script src="./occupy-template.js"></script>
+  <script>
+    window.OccupyPageTemplate.bootstrap({
+      root: document.getElementById("occupy-template-root"),
+      dataScriptId: "occupy-template-data"
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Train Prototype Creator"
+  short_description: "Generate OTA wireframe prototypes with SVG asset reuse"
+  icon_small: "./assets/prototype-creator-small.png"
+  icon_large: "./assets/prototype-creator.png"
+  default_prompt: "Use $train-prototype-creator to turn this product flow into an OTA wireframe prototype with HTML, preview images, and prioritized reuse of mapped user SVG assets when available. For final interaction demos, keep the fixed interaction-demo shell and continue reusing the corresponding home/list/fill/occupy page templates inside the phone preview instead of inventing one-off flow structures. If the user has not provided a save path yet, start by executing scripts/choose_output_folder.sh directly on local macOS to open the system folder picker before falling back to a text question."

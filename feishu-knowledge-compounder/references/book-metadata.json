@@ -1,0 +1,40 @@
+{
+  "Building a Second Brain": {
+    "online_url": "https://www.buildingasecondbrain.com/book",
+    "cover_url": "https://cdn.prod.website-files.com/6187bf2c6ff8781b8c52e09c/61b777b4852c026f104b3649_basb-social-share-image-2.png",
+    "tags": ["PKM", "第二大脑", "知识管理", "知识复利"]
+  },
+  "Atomic Habits": {
+    "online_url": "https://jamesclear.com/atomic-habits",
+    "cover_url": "https://jamesclear.com/wp-content/uploads/2019/02/atomic-habits_gallery_hi-res_04.jpg",
+    "tags": ["习惯养成", "行为改变", "持续行动", "系统优化"]
+  },
+  "Don't Make Me Think": {
+    "online_url": "https://sensible.com/dont-make-me-think/",
+    "tags": ["可用性", "交互设计", "低认知负荷"]
+  },
+  "The Design of Everyday Things": {
+    "online_url": "https://jnd.org/books/the-design-of-everyday-things-revised-and-expanded-edition/",
+    "cover_url": "https://i0.wp.com/jnd.org/wp-content/uploads/2023/02/the-design-of-everyday-things-6-1.png?fit=300%2C400&ssl=1",
+    "tags": ["交互设计", "错误恢复", "心智模型"]
+  },
+  "About Face 4": {
+    "online_url": "https://www.wiley.com/en-us/About%2BFace%3A%2BThe%2BEssentials%2Bof%2BInteraction%2BDesign%2C%2B4th%2BEdition-p-9781118766576",
+    "cover_url": "https://media.wiley.com/product_data/coverImage300/71/11187665/1118766571.jpg",
+    "tags": ["交互设计", "模式语言"]
+  },
+  "Designing Interfaces": {
+    "online_url": "https://www.oreilly.com/library/view/designing-interfaces-3rd/9781492051954/",
+    "tags": ["UI模式", "交互模式", "设计规范"]
+  },
+  "How to Take Smart Notes": {
+    "online_url": "https://www.soenkeahrens.de/en/takesmartnotes",
+    "cover_url": "https://images.squarespace-cdn.com/content/v1/61ea8612f1b4331a57b5f9d1/1652195260055-D0V8QNUADQJ8YPJTDQR7/TSN-English-small.jpg",
+    "tags": ["卡片笔记", "Zettelkasten", "知识连接", "写作系统"]
+  },
+  "The Pragmatic Programmer": {
+    "online_url": "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/",
+    "cover_url": "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/tpp20.jpg",
+    "tags": ["工程实践", "工具思维", "迭代"]
+  }
+}

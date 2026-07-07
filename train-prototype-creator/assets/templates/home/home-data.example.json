@@ -1,0 +1,142 @@
+{
+  "statusBar": {
+    "time": "9:41"
+  },
+  "hero": {
+    "backAsset": "assets/home-back.svg"
+  },
+  "traffic": {
+    "mini": {
+      "asset": "homePlane",
+      "label": "机票"
+    },
+    "primaryTabs": [
+      {
+        "label": "国内·国际火车",
+        "active": true
+      },
+      {
+        "label": "汽车"
+      },
+      {
+        "label": "船票"
+      }
+    ],
+    "regions": [
+      {
+        "label": "国内",
+        "active": true
+      },
+      {
+        "label": "欧洲"
+      },
+      {
+        "label": "韩国"
+      },
+      {
+        "label": "日本"
+      }
+    ],
+    "tripTypes": [
+      {
+        "label": "单程",
+        "active": true
+      },
+      {
+        "label": "往返"
+      },
+      {
+        "label": "多程"
+      }
+    ]
+  },
+  "search": {
+    "from": "北京",
+    "to": "西安",
+    "switchAsset": "homeSwitch",
+    "dateValue": "12月20日",
+    "dateLabel": "今天",
+    "checks": [
+      {
+        "label": "学生票",
+        "checked": false
+      },
+      {
+        "label": "高铁动车",
+        "checked": false
+      }
+    ],
+    "stateLabel": "有票车次充足",
+    "toggleLabel": "优先查看有票方案",
+    "toggleAsset": "homeCheckboxUnselected",
+    "benefitTag": null,
+    "queryLabel": "查询",
+    "history": [
+      "南京-西安",
+      "北京-上海",
+      "乌鲁木齐南-伊犁"
+    ],
+    "historyClearLabel": "清除历史"
+  },
+  "bodySections": [
+    {
+      "title": "火车百宝箱",
+      "minor": "全部",
+      "type": "toolbox",
+      "data": {
+        "cards": [
+          {
+            "title": "在线换座",
+            "copy": "靠窗下铺连座随心换",
+            "tag": "换座"
+          },
+          {
+            "title": "开售查询",
+            "copy": "查询提前买"
+          },
+          {
+            "title": "火车超能力",
+            "copy": "充能免费送"
+          }
+        ],
+        "links": [
+          "抢票攻略",
+          "携童出行",
+          "退改须知",
+          "省钱任务"
+        ]
+      }
+    }
+  ],
+  "bottomTabs": [
+    {
+      "asset": "homeTabTicketGrabbing",
+      "label": "抢票",
+      "active": true
+    },
+    {
+      "asset": "homeTabChangeSeat",
+      "label": "在线换座"
+    },
+    {
+      "asset": "homeTabOrder",
+      "label": "我的订单"
+    },
+    {
+      "asset": "homeTabPersonal",
+      "label": "个人中心"
+    }
+  ],
+  "assets": {
+    "homeBack": "assets/home-back.svg",
+    "homePlane": "assets/home-tab-flight.svg",
+    "homeSwitch": "assets/home-switch.svg",
+    "homeArrowSmall": "assets/home-arrow-small.svg",
+    "homeCheckboxSelected": "assets/home-checkbox-select.svg",
+    "homeCheckboxUnselected": "assets/home-checkbox-unselect.svg",
+    "homeTabTicketGrabbing": "assets/home-tab-ticket-grabbing.svg",
+    "homeTabChangeSeat": "assets/home-tab-change-seat.svg",
+    "homeTabOrder": "assets/home-tab-order.svg",
+    "homeTabPersonal": "assets/home-tab-personal.svg"
+  }
+}

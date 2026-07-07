@@ -16,6 +16,11 @@ Icon
 .env.*
 !.env.example
 *.local
+feishu-config*.json
+image-gen-config.json
+*.credentials.json
+*.secret.json
+*.secrets.json
 
 # Logs
 logs/
@@ -34,6 +39,7 @@ dist/
 build/
 out/
 coverage/
+wireframes/
 
 # Python
 __pycache__/
@@ -47,8 +53,19 @@ venv/
 # Local tool caches
 .cache/
 .codex/
+.cursor/
 
 # Temporary files
 tmp/
 temp/
 *.tmp
+
+# Local backups
+backup/
+*.backup*
+
+# Generated skill outputs
+note-*.json
+*-note.json
+template-output.json
+*沉淀报告.md

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train Middle Template</title>
+  <link rel="stylesheet" href="./middle-template.css" />
+</head>
+<body>
+  <div id="middle-template-root"></div>
+
+  <script id="middle-template-data" type="application/json">
+__MIDDLE_TEMPLATE_DATA__
+  </script>
+  <script src="./middle-template.js"></script>
+  <script>
+    window.MiddlePageTemplate.bootstrap({
+      root: document.getElementById("middle-template-root"),
+      dataScriptId: "middle-template-data"
+    });
+  </script>
+</body>
+</html>

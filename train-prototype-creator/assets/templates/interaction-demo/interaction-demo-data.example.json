@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "pageTitle": "火车票交互预览",
+    "previewHeaderTitle": "页面预览",
+    "docHeaderTitle": "交互说明",
+    "previewActions": [],
+    "docActions": [
+      {
+        "id": "copy-doc",
+        "label": "复制说明"
+      },
+      {
+        "id": "toggle-edit",
+        "label": "修改"
+      },
+      {
+        "id": "export-pdf",
+        "label": "导出 PDF",
+        "tone": "primary"
+      },
+      {
+        "id": "share-package",
+        "label": "分享",
+        "tone": "primary"
+      }
+    ],
+    "toastText": "已复制"
+  },
+  "preview": {
+    "frames": [
+      {
+        "id": "home-quick",
+        "label": "01 首页权益提示",
+        "active": true,
+        "stateRail": {
+          "title": "状态切换",
+          "items": [
+            {
+              "id": "normal",
+              "label": "正常态",
+              "active": true,
+              "phone": {
+                "template": {
+                  "kind": "home",
+                  "data": {
+                    "search": {
+                      "from": "昆山南",
+                      "to": "上海虹桥",
+                      "dateValue": "06月05日",
+                      "dateLabel": "周五",
+                      "queryAction": {
+                        "type": "navigate",
+                        "frameId": "list-anchor",
+                        "stateId": "normal"
+                      }
+                    },
+                    "bodySections": [
+                      {
+                        "title": "车票权益",
+                        "minor": "首页腰部以下新增",
+                        "type": "quick-booking",
+                        "data": {
+                          "kicker": "推荐车次",
+                          "trainNo": "G7008",
+                          "statusLabel": "可直接下单",
+                          "statusTone": "ok",
+                          "copy": "保留出发到达和日期信息，确认后继续预订。",
+                          "priceLabel": "二等座起",
+                          "price": "39.5",
+                          "journey": {
+                            "depTime": "07:32",
+                            "depStation": "昆山南",
+                            "duration": "32分",
+                          "meta": "直达 · 推荐",
+                            "arrTime": "08:04",
+                            "arrStation": "上海虹桥"
+                          },
+                          "settings": [
+                            {
+                              "icon": "seat",
+                              "title": "坐席偏好",
+                              "value": "二等座 · 靠窗优先"
+                            },
+                            {
+                              "icon": "user",
+                              "title": "乘车人信息",
+                              "value": "梁晨 · 成人票"
+                            }
+                          ],
+                          "ctaLabel": "继续预订",
+                          "ctaAction": {
+                            "type": "navigate",
+                            "frameId": "fill-form",
+                            "stateId": "default"
+                          },
+                          "hint": "首页不预设日期，确认浮层里再选择。"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "list-anchor",
+        "label": "02 列表页承接",
+        "stateRail": {
+          "title": "列表状态",
+          "items": [
+            {
+              "id": "normal",
+              "label": "普通列表",
+              "active": true,
+              "phone": {
+                "template": {
+                  "kind": "list",
+                  "data": {
+                    "route": {
+                      "from": "昆山南",
+                      "to": "上海虹桥"
+                    },
+                    "backAction": {
+                      "type": "navigate",
+                      "frameId": "home-quick",
+                      "stateId": "normal"
+                    },
+                    "cards": [
+                      {
+                        "type": "direct",
+                        "selected": true,
+                        "depTime": "07:32",
+                        "depStation": "昆山南",
+                        "arrTime": "08:04",
+                        "arrStation": "上海虹桥",
+                        "duration": "32分",
+                        "trainNo": "G7008",
+                        "price": "39.5",
+                        "seats": [
+                          {
+                            "label": "二等",
+                            "value": "有票"
+                          },
+                          {
+                            "label": "一等",
+                            "value": "有票"
+                          },
+                          {
+                            "label": "商务",
+                            "value": "无票"
+                          }
+                        ],
+                        "action": {
+                          "type": "navigate",
+                          "frameId": "fill-form",
+                          "stateId": "default"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "fill-form",
+        "label": "03 填写页",
+        "stateRail": {
+          "title": "填写状态",
+          "items": [
+            {
+              "id": "default",
+              "label": "默认态",
+              "active": true,
+              "phone": {
+                "template": {
+                  "kind": "fill",
+                  "data": {
+                    "titleBar": {
+                      "backAction": {
+                        "type": "navigate",
+                        "frameId": "list-anchor",
+                        "stateId": "normal"
+                      }
+                    },
+                    "journeySummary": {
+                      "route": "昆山南-上海虹桥",
+                      "date": "06-05",
+                      "time": "07:32",
+                      "favorite": {
+                        "saved": false,
+                          "show": false,
+                          "defaultLabel": "保存行程"
+                      }
+                    },
+                    "paybar": {
+                      "amount": "39.5",
+                      "buttonLabel": "立即预订",
+                      "buttonAction": {
+                        "type": "navigate",
+                        "frameId": "occupy-success",
+                        "stateId": "default"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "occupy-success",
+        "label": "04 占座页",
+        "stateRail": {
+          "title": "结果状态",
+          "items": [
+            {
+              "id": "default",
+              "label": "占座成功",
+              "active": true,
+              "phone": {
+                "template": {
+                  "kind": "occupy",
+                  "data": {
+                    "titleBar": {
+                      "backAction": {
+                        "type": "navigate",
+                        "frameId": "home-quick",
+                        "stateId": "normal"
+                      }
+                    },
+                    "cancelAction": {
+                      "type": "navigate",
+                      "frameId": "home-quick",
+                      "stateId": "normal"
+                    },
+                    "paybar": {
+                      "amount": "39.5",
+                      "buttonLabel": "去支付",
+                      "detailsAction": {
+                        "type": "toast",
+                        "text": "这里可以继续接金额明细浮层"
+                      },
+                      "buttonAction": {
+                        "type": "toast",
+                        "text": "这里可以继续接收银台"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "doc": {
+    "sections": [
+      {
+        "index": "01",
+        "title": "用户场景",
+        "type": "decision",
+        "items": [
+          {
+            "mark": "A",
+            "title": "火车票权益预览",
+            "body": "用户临近出门才购票，需要快速复用常坐路线、车次和乘车人。"
+          }
+        ]
+      },
+      {
+        "index": "02",
+        "title": "方案目标",
+        "type": "decision",
+        "items": [
+          {
+            "mark": "A",
+            "title": "降低理解成本",
+            "body": "入口只呈现当前最可能购买的车次和关键设置，让用户直接判断是否继续。"
+          },
+          {
+            "mark": "B",
+            "title": "缩短购票路径",
+            "body": "正常态确认后直接进入占座结果，异常态则承接到列表继续选择。"
+          }
+        ]
+      },
+      {
+        "index": "03",
+        "title": "交互流程",
+        "type": "flow",
+        "variant": "compact-flow",
+        "items": [
+          {
+            "num": "1",
+            "title": "首页展示权益提示",
+            "body": "展示车票权益、车次摘要和继续预订入口。"
+          },
+          {
+            "num": "2",
+            "title": "确认行程",
+            "body": "用户可切换日期并确认占座。"
+          },
+          {
+            "num": "3",
+            "title": "进入结果页",
+            "body": "成功后展示占座页，失败或不可售时进入列表承接。"
+          }
+        ]
+      },
+      {
+        "index": "04",
+        "title": "交互状态说明",
+        "type": "state-grid",
+        "items": [
+          {
+            "title": "正常态",
+            "body": "主按钮进入确认，确认后自动占座。",
+            "color": "green"
+          },
+          {
+            "title": "异常态",
+            "body": "不可直接购买时进入列表，并定位原车次。",
+            "color": "orange"
+          }
+        ]
+      },
+      {
+        "index": "05",
+        "title": "边界场景（如有）",
+        "type": "state-grid",
+        "items": [
+          {
+            "title": "暂无新增边界",
+            "body": "如存在登录、无票、停售、支付失败等情况，可在此段补充。",
+            "color": "blue"
+          }
+        ]
+      }
+    ]
+  }
+}

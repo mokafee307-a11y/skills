@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老客多单任务玩法 - 需求反思 & 交互文档</title>
+<style>
+:root { color-scheme: light; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  line-height: 1.75;
+  color: #1a1a1a;
+  background: #f5f6f8;
+  padding: 32px 16px;
+}
+.container { max-width: 800px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 40px; }
+.header h1 { font-size: 24px; color: #111; margin-bottom: 8px; }
+.header p { font-size: 14px; color: #666; }
+
+/* 反思区样式 */
+.section {
+  background: #fff; border-radius: 12px; padding: 28px 32px;
+  margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.section-title {
+  font-size: 16px; font-weight: 600; color: #2563eb;
+  margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+}
+.section-title .num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; background: #2563eb; color: #fff;
+  border-radius: 50%; font-size: 13px;
+}
+.section-body { font-size: 15px; color: #333; margin-bottom: 16px; }
+.section-body p { margin-bottom: 10px; }
+.section-body strong { color: #111; }
+.suggestion-box {
+  background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px;
+  padding: 16px 20px; margin-top: 16px;
+}
+.suggestion-label {
+  font-size: 13px; font-weight: 600; color: #92400e;
+  margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+}
+.suggestion-label::before { content: "💡"; }
+.suggestion-content { font-size: 14px; color: #78350f; margin-bottom: 14px; }
+.btn-group { display: flex; gap: 10px; }
+.btn {
+  padding: 7px 18px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  cursor: pointer; border: none; transition: all .15s;
+}
+.btn-accept { background: #2563eb; color: #fff; }
+.btn-accept:hover { background: #1d4ed8; }
+.btn-accept.active { background: #16a34a; }
+.btn-ignore { background: #fff; color: #666; border: 1px solid #d1d5db; }
+.btn-ignore:hover { background: #f3f4f6; }
+.btn-ignore.active { background: #f3f4f6; color: #999; }
+.status-badge { display: none; font-size: 12px; padding: 2px 10px; border-radius: 4px; margin-left: 8px; }
+.status-badge.accepted { display: inline-block; background: #dcfce7; color: #166534; }
+.status-badge.ignored { display: inline-block; background: #f3f4f6; color: #6b7280; }
+
+/* 底部按钮 */
+.footer {
+  text-align: center; margin-top: 36px;
+  display: flex; flex-direction: column; align-items: center; gap: 24px;
+}
+.btn-confirm {
+  width: 280px; padding: 12px 0; background: #2563eb; color: #fff;
+  border: none; border-radius: 8px; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+}
+.btn-confirm:hover { background: #1d4ed8; }
+.btn-confirm:disabled { background: #93c5fd; cursor: not-allowed; }
+.btn-confirm-secondary {
+  width: 280px; padding: 12px 0; background: #fff; color: #333;
+  border: 1px solid #333; border-radius: 8px; font-size: 15px;
+  font-weight: 600; cursor: pointer; transition: all .15s;
+}
+.btn-confirm-secondary:hover { background: #f3f4f6; }
+
+/* 交互文档区样式 */
+#docSection { display: none; margin-top: 48px; }
+#docSection .toolbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: #fff; border-bottom: 1px solid #e0e0e0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 24px; height: 56px; border-radius: 12px 12px 0 0;
+}
+#docSection .toolbar-left { display: flex; align-items: center; gap: 12px; }
+#docSection .toolbar-right { display: flex; align-items: center; gap: 8px; }
+#docSection .toolbar button {
+  padding: 6px 14px; border-radius: 6px; font-size: 13px;
+  cursor: pointer; border: 1px solid #d0d0d0; background: #fff;
+  color: #333; transition: all .15s;
+}
+#docSection .toolbar button:hover:not(:disabled) { background: #f0f0f0; }
+#docSection .toolbar button:disabled { opacity: .4; cursor: not-allowed; }
+#docSection .toolbar button.primary { background: #2563eb; color: #fff; border-color: #2563eb; }
+#docSection .toolbar button.primary:hover { background: #1d4ed8; }
+.doc-status-text { font-size: 13px; color: #666; }
+.doc-container {
+  background: #fff; padding: 48px 56px; border-radius: 0 0 12px 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.doc-container h1 { font-size: 28px; color: #111; margin-bottom: 8px; border-bottom: 3px solid #2563eb; padding-bottom: 12px; }
+.doc-container h2 { font-size: 22px; color: #2563eb; margin-top: 48px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
+.doc-container h3 { font-size: 18px; color: #333; margin-top: 32px; margin-bottom: 12px; }
+.doc-container h4 { font-size: 15px; color: #444; margin-top: 24px; margin-bottom: 8px; }
+.doc-container p { margin-bottom: 12px; }
+.doc-container blockquote {
+  border-left: 4px solid #2563eb; padding: 12px 20px;
+  background: #f0f7ff; margin: 16px 0; border-radius: 0 8px 8px 0;
+  color: #1e40af; font-size: 15px;
+}
+.doc-container table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+.doc-container th { background: #f1f5f9; font-weight: 600; text-align: left; padding: 10px 14px; border: 1px solid #e2e8f0; }
+.doc-container td { padding: 10px 14px; border: 1px solid #e2e8f0; }
+.doc-container tr:nth-child(even) td { background: #f8fafc; }
+.doc-container tr:hover td { background: #eef2ff; }
+.doc-container pre {
+  background: #f4f4f5; border: 1px solid #e4e4e7; border-radius: 8px;
+  padding: 16px 20px; overflow-x: auto; font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 13px; line-height: 1.6; margin: 16px 0;
+}
+.doc-container ul, .doc-container ol { padding-left: 24px; margin: 8px 0; }
+.doc-container li { margin-bottom: 4px; }
+.tag-pending {
+  display: inline-block; background: #fff3e0; color: #e65100;
+  padding: 1px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;
+}
+.tag-added {
+  display: inline-block; background: #dcfce7; color: #166534;
+  padding: 1px 8px; border-radius: 4px; font-size: 12px; font-weight: 500;
+}
+.doc-meta {
+  color: #666; font-size: 14px; margin-bottom: 32px; padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+.highlight-box {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+  padding: 16px 20px; margin: 16px 0;
+}
+.highlight-box .highlight-title {
+  font-size: 13px; font-weight: 600; color: #166534; margin-bottom: 8px;
+}
+
+/* 过渡动画 */
+.fade-in { animation: fadeIn .4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+@media print {
+  #reflectionSection { display: none !important; }
+  #docSection .toolbar { display: none !important; }
+  body { padding: 0; background: #fff; }
+  .doc-container { box-shadow: none; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 反思区 ========== -->
+<div id="reflectionSection">
+<div class="container">
+
+<div class="header">
+  <h1>需求反思确认</h1>
+  <p>老客多单任务玩法 · 请确认以下反思分析和建议，选择后将直接生成交互文档</p>
+</div>
+
+<!-- 反思1 -->
+<div class="section">
+  <div class="section-title"><span class="num">1</span> 这个需求的业务目标是什么？</div>
+  <div class="section-body">
+    <p>核心目标是将老客的外部出行票量转化为内部票量。用户已经有稳定的出行需求（高差值用户高峰期月均4.7张外部票），但选择了竞品购票。</p>
+    <p>本需求并非创造新需求，而是通过阶梯奖励机制建立"用携程买票→获得下一单优惠→继续用携程"的正向循环，抢夺外部票量份额。本质上是一个<strong>"留存→复购"的增长工具</strong>，而非拉新或促活。</p>
+  </div>
+  <div class="suggestion-box">
+    <div class="suggestion-label">建议</div>
+    <div class="suggestion-content">在交互文档中明确区分"首单激活"和"多单留存"两个子目标——第1阶段自动发券解决的是「首单体验」问题，第2-3阶段才是真正的「复购留存」。设计上两个阶段的信息密度和强调程度应有差异：首单重"无感领取、立刻可用"，后续重"进度可视、目标感"。</div>
+    <div class="btn-group">
+      <button class="btn btn-accept" onclick="choose(0, 'accept')">同意并修改</button>
+      <button class="btn btn-ignore" onclick="choose(0, 'ignore')">忽略</button>
+    </div>
+    <span class="status-badge" id="badge-0"></span>
+  </div>
+</div>
+
+<!-- 反思2 -->
+<div class="section">
+  <div class="section-title"><span class="num">2</span> 目前这份PRD的做法，是否能完成这个目标？</div>
+  <div class="section-body">
+    <p><strong>合理之处：</strong>阶梯式奖励（1单→3单→5单）设置了递进门槛，5单出行基本覆盖一个月的通勤/高频出行场景，能培养使用惯性；全链路曝光（5个页面）保证触达率不依赖单一入口；30天周期与出行频次匹配。</p>
+    <p><strong>隐忧：</strong>奖励力度偏弱（2元/2元/8元），对于均价100-300元的火车票优惠幅度仅1%-2%，切换成本可能远高于优惠吸引力。"出行后才能领券"意味着反馈链路长（买票→出行→领券→下次用），可能削弱即时激励效果。</p>
+  </div>
+  <div class="suggestion-box">
+    <div class="suggestion-label">建议</div>
+    <div class="suggestion-content">在活动浮层的进度展示中，增加「预期收益前置」设计——进入活动时就展示完整的三阶段奖励总额（如"完成5单累计可得12元"），让用户一开始就感知到总收益而非单次2元的弱感知。交互文档中建议标注此处需要视觉强化。</div>
+    <div class="btn-group">
+      <button class="btn btn-accept" onclick="choose(1, 'accept')">同意并修改</button>
+      <button class="btn btn-ignore" onclick="choose(1, 'ignore')">忽略</button>
+    </div>
+    <span class="status-badge" id="badge-1"></span>
+  </div>
+</div>
+
+<!-- 反思3 -->
+<div class="section">
+  <div class="section-title"><span class="num">3</span> 这份PRD的做法是否会损害用户体验？</div>
+  <div class="section-body">
+    <p>存在以下风险：</p>
+    <p><strong>多页面banner轰炸：</strong>5个页面全链路展示，30天内用户几乎每个页面都会看到banner，对无感用户是信息噪音。</p>
+    <p><strong>领券失败挫败感强：</strong>用户完成出行后因退票等原因"领取失败"，已付出行为成本却未获承诺奖励，且规则（部分退票、改签）复杂。</p>
+    <p><strong>登录校验打断流程：</strong>领券时需校验123XX登录态，未登录弹浮层，是较重的操作中断。</p>
+    <p><strong>风控静默换券类型：</strong>面额不变但从立减券变为套餐立减券，用户不会注意使用限制变化。</p>
+  </div>
+  <div class="suggestion-box">
+    <div class="suggestion-label">建议A：领券失败的体验兜底</div>
+    <div class="suggestion-content">在交互文档中增加「领取失败」状态的安抚设计建议：失败时不仅展示"领取失败"，还应给出明确原因和后续引导（如"该单已退票，完成下一单出行仍可继续解锁后续奖励"），避免用户误以为整个活动作废。</div>
+    <div class="btn-group">
+      <button class="btn btn-accept" onclick="choose(2, 'accept')">同意并修改</button>
+      <button class="btn btn-ignore" onclick="choose(2, 'ignore')">忽略</button>
+    </div>
+    <span class="status-badge" id="badge-2"></span>
+  </div>
+  <div class="suggestion-box" style="margin-top:12px;">
+    <div class="suggestion-label">建议B：banner疲劳度控制</div>
+    <div class="suggestion-content">建议在交互文档中标注：同一用户单日内跨页面累计曝光banner超过N次后，后续页面降级为弱提示（如缩小尺寸或仅保留图标入口），避免用户产生"广告轰炸"的负面感知。具体阈值建议产品侧确认。</div>
+    <div class="btn-group">
+      <button class="btn btn-accept" onclick="choose(3, 'accept')">同意并修改</button>
+      <button class="btn btn-ignore" onclick="choose(3, 'ignore')">忽略</button>
+    </div>
+    <span class="status-badge" id="badge-3"></span>
+  </div>
+  <div class="suggestion-box" style="margin-top:12px;">
+    <div class="suggestion-label">建议C：风控换券的透明度</div>
+    <div class="suggestion-content">建议在浮层中对命中风控用户展示券类型说明标签（如"套餐立减券·需满足套餐条件使用"），让用户在领取前就知晓使用限制，而非领取后发现用不了。交互文档中应补充此状态的UI差异。</div>
+    <div class="btn-group">
+      <button class="btn btn-accept" onclick="choose(4, 'accept')">同意并修改</button>
+      <button class="btn btn-ignore" onclick="choose(4, 'ignore')">忽略</button>
+    </div>
+    <span class="status-badge" id="badge-4"></span>
+  </div>
+</div>
+
+<!-- 其他建议 -->
+<div class="section">
+  <div class="section-title" style="color:#333;">其他建议</div>
+  <p style="font-size:13px; color:#888; margin-bottom:12px;">如果你有额外的想法或补充建议，可以在此输入，将一并纳入交互文档生成。</p>
+  <textarea id="userSuggestion" placeholder="请输入你的建议..." style="width:100%; min-height:120px; padding:14px 16px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; font-family:inherit; line-height:1.6; resize:vertical; outline:none; transition:border-color .15s;" onfocus="this.style.borderColor='#2563eb'" onblur="this.style.borderColor='#d1d5db'"></textarea>
+</div>
+
+<!-- 确认按钮 -->
+<div class="footer">
+  <button class="btn-confirm" id="btnConfirm" onclick="generateDoc()">确认并生成交互文档</button>
+  <button class="btn-confirm-secondary" onclick="ignoreAllAndGenerate()">全部忽略并生成交互文档</button>
+  <p style="font-size:13px; color:#888;" id="hint">点击"同意并修改"采纳建议，或直接确认生成文档</p>
+</div>
+
+</div>
+</div>
+
+<!-- ========== 交互文档区 ========== -->
+<div id="docSection" class="container">
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <button id="btnEdit" onclick="toggleEdit()">切换编辑</button>
+      <span class="doc-status-text" id="docStatusText">只读模式</span>
+    </div>
+    <div class="toolbar-right">
+      <button id="btnUndo" onclick="undo()" disabled>&#8617; 撤销</button>
+      <button id="btnRedo" onclick="redo()" disabled>&#8618; 重做</button>
+      <button onclick="saveHTML()">保存</button>
+      <button onclick="exportPDF()">导出PDF</button>
+      <button class="primary" onclick="exportMarkdown()">导出Markdown</button>
+    </div>
+  </div>
+  <div class="doc-container" id="docContent"></div>
+</div>
+
+<script>
+// ========== 反思交互逻辑 ==========
+const suggestions = [
+  '区分"首单激活"与"多单留存"子目标，设计上差异化信息密度',
+  '活动浮层增加"预期收益前置"——展示三阶段奖励总额',
+  '领取失败状态增加安抚设计和后续引导',
+  'banner曝光增加疲劳度控制，超阈值后降级展示',
+  '风控换券时增加券类型说明标签，提前告知使用限制'
+];
+const choices = [null, null, null, null, null];
+
+function choose(idx, action) {
+  if (choices[idx] === action) {
+    choices[idx] = null;
+    const badge = document.getElementById('badge-' + idx);
+    const box = badge.parentElement;
+    const btns = box.querySelectorAll('.btn');
+    btns[0].classList.remove('active'); btns[0].textContent = '同意并修改';
+    btns[1].classList.remove('active'); btns[1].textContent = '忽略';
+    badge.className = 'status-badge'; badge.textContent = '';
+    checkAll(); return;
+  }
+  choices[idx] = action;
+  const badge = document.getElementById('badge-' + idx);
+  const box = badge.parentElement;
+  const btns = box.querySelectorAll('.btn');
+  btns[0].classList.remove('active'); btns[0].textContent = '同意并修改';
+  btns[1].classList.remove('active'); btns[1].textContent = '忽略';
+  if (action === 'accept') {
+    btns[0].classList.add('active'); btns[0].textContent = '✓ 已同意';
+    badge.className = 'status-badge accepted'; badge.textContent = '已采纳';
+  } else {
+    btns[1].classList.add('active'); btns[1].textContent = '已忽略';
+    badge.className = 'status-badge ignored'; badge.textContent = '已忽略';
+  }
+  checkAll();
+}
+
+function checkAll() {
+  const hasAnyAccept = choices.some(c => c === 'accept');
+  document.getElementById('btnConfirm').disabled = false;
+  if (hasAnyAccept) {
+    document.getElementById('hint').textContent = '点击确认后，未选择的建议将自动忽略';
+  } else {
+    document.getElementById('hint').textContent = '点击"同意并修改"采纳建议，或直接确认生成文档';
+  }
+}
+
+function ignoreAllAndGenerate() {
+  for (let i = 0; i < 5; i++) {
+    choices[i] = 'ignore';
+    const badge = document.getElementById('badge-' + i);
+    const box = badge.parentElement;
+    const btns = box.querySelectorAll('.btn');
+    btns[0].classList.remove('active'); btns[0].textContent = '同意并修改';
+    btns[1].classList.add('active'); btns[1].textContent = '已忽略';
+    badge.className = 'status-badge ignored'; badge.textContent = '已忽略';
+  }
+  generateDoc();
+}
+
+function generateDoc() {
+  // 未选择的建议自动设为忽略
+  for (let i = 0; i < 5; i++) {
+    if (choices[i] === null) {
+      choices[i] = 'ignore';
+      const badge = document.getElementById('badge-' + i);
+      const box = badge.parentElement;
+      const btns = box.querySelectorAll('.btn');
+      btns[1].classList.add('active'); btns[1].textContent = '已忽略';
+      badge.className = 'status-badge ignored'; badge.textContent = '已忽略';
+    }
+  }
+  const userText = document.getElementById('userSuggestion').value.trim();
+  document.getElementById('reflectionSection').style.display = 'none';
+  const docSection = document.getElementById('docSection');
+  docSection.style.display = 'block';
+  docSection.classList.add('fade-in');
+  document.getElementById('docContent').innerHTML = buildDocument(choices, userText);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ========== 文档生成逻辑 ==========
+function buildDocument(choices, userText) {
+  const s0 = choices[0] === 'accept';
+  const s1 = choices[1] === 'accept';
+  const s2 = choices[2] === 'accept';
+  const s3 = choices[3] === 'accept';
+  const s4 = choices[4] === 'accept';
+
+  let html = '';
+
+  // 标题
+  html += '<h1>老客多单任务玩法 - 交互文档</h1>';
+  html += '<div class="doc-meta">黑白交互稿说明 · 不涉及视觉规范 · 仅画实验组 · 标注 <span class="tag-pending">[待确认]</span> 处为缺失项</div>';
+
+  // 一、需求摘要
+  html += '<h2>一、需求摘要</h2>';
+  html += '<h3>一句话需求</h3>';
+  html += '<blockquote>通过"每单解锁奖励"的多单任务玩法，激励老客在活动周期内完成多次出行，拉动复购。</blockquote>';
+
+  html += '<h3>项目背景</h3>';
+  html += '<p>老客回流后缺乏有效粘性工具促使复购，集团积分获取慢且不能兑换高价值权益。本需求建立火车票自研老客复购成长体系，短期内通过轻量化下单返券玩法，每单解锁阶段性奖励，拉动用户复购。</p>';
+  html += '<p>目标数据：高差值用户高峰期人均外部票量4.7张/月，平峰期2.8张/月，若转化10%外部票量 → 高峰期+4.2K张/天，平峰期+2.5K张/天。</p>';
+
+  // 需求反思
+  html += '<h3>需求反思</h3>';
+  html += '<h4>1. 业务目标</h4>';
+  html += '<p>核心目标是将老客的外部出行票量转化为内部票量。本质上是一个"留存→复购"的增长工具，而非拉新或促活。</p>';
+  if (s0) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">设计建议采纳</span> 区分子目标</div>';
+    html += '<p>第1阶段（首单自动发券）解决「首单激活」——设计重点为<strong>无感领取、立刻可用</strong>，信息密度低、操作最轻。第2-3阶段为「复购留存」——设计重点为<strong>进度可视、目标感强</strong>，进度条和阶段奖励需视觉强化。</p></div>';
+  }
+
+  html += '<h4>2. 方案可行性</h4>';
+  html += '<p>合理之处：阶梯式奖励覆盖月度出行频次，全链路曝光保证触达率。隐忧：奖励力度偏弱（1%-2%），反馈链路长。</p>';
+  if (s1) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">设计建议采纳</span> 预期收益前置</div>';
+    html += '<p>活动浮层顶部需展示<strong>三阶段奖励总额</strong>（如"完成5单累计可得12元"），让用户初次进入就感知总收益而非仅看到单次2元，强化激励效果。此处需要视觉强化处理。</p></div>';
+  }
+
+  html += '<h4>3. 用户体验风险</h4>';
+  html += '<p>多页面banner轰炸、领券失败挫败感、登录校验打断、风控静默换券等风险。</p>';
+  if (s2) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">设计建议采纳</span> 领券失败安抚设计</div>';
+    html += '<p>领取失败时，除展示"领取失败"状态外，需增加<strong>明确原因说明 + 后续引导</strong>：如"该单已退票，完成下一单出行仍可继续解锁后续奖励"，避免用户误以为整个活动作废。</p></div>';
+  }
+  if (s3) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">设计建议采纳</span> banner疲劳度控制</div>';
+    html += '<p>同一用户单日内跨页面累计曝光banner超过N次后，后续页面<strong>降级为弱提示</strong>（缩小尺寸或仅保留图标入口），避免广告轰炸感。具体阈值 <span class="tag-pending">[待确认]</span>。</p></div>';
+  }
+  if (s4) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">设计建议采纳</span> 风控换券透明度</div>';
+    html += '<p>命中风控用户，浮层中券卡片需增加<strong>券类型说明标签</strong>（如"套餐立减券·需满足套餐条件使用"），让用户领取前即知晓使用限制。</p></div>';
+  }
+
+  // 用户补充建议
+  if (userText) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">补充建议</span></div>';
+    html += '<p>' + userText.replace(/\n/g, '<br>') + '</p></div>';
+  }
+
+  // 设计目标
+  html += '<h3>设计目标</h3>';
+  html += '<table><tr><th>#</th><th>目标</th><th>关注点</th></tr>';
+  html += '<tr><td>1</td><td>清晰传达任务进度</td><td>用户能在每个页面快速感知当前活动阶段和下一步奖励</td></tr>';
+  if (s0) {
+    html += '<tr><td>2</td><td>首单无感激活</td><td>第1阶段自动发券+立刻可用，零操作成本</td></tr>';
+    html += '<tr><td>3</td><td>后续进度驱动</td><td>第2-3阶段进度可视化、目标感强化</td></tr>';
+  }
+  html += '<tr><td>' + (s0?4:2) + '</td><td>降低领券认知成本</td><td>领取交互简洁、状态反馈明确</td></tr>';
+  html += '<tr><td>' + (s0?5:3) + '</td><td>多触点覆盖</td><td>首页/列表页/X页/填写页/订详页全链路曝光，保持一致性</td></tr>';
+  html += '</table>';
+
+  // 观测指标
+  html += '<h3>观测指标</h3>';
+  html += '<table><tr><th>类别</th><th>指标</th><th>说明</th></tr>';
+  html += '<tr><td>业务</td><td>人均出行单量</td><td>活动周期内实验组 vs 对照组的人均出票单数</td></tr>';
+  html += '<tr><td>漏斗</td><td>banner点击率</td><td>各页面banner曝光→点击的转化率</td></tr>';
+  html += '<tr><td>漏斗</td><td>券领取率</td><td>可领状态→实际领取的比例</td></tr>';
+  html += '<tr><td>健康度</td><td>券核销率</td><td>已领取券的实际使用比例</td></tr>';
+  if (s3) {
+    html += '<tr><td>健康度</td><td>banner关闭/忽略率</td><td>用户对banner的负反馈指标</td></tr>';
+  }
+  html += '</table>';
+
+  // 二、涉及页面总览
+  html += '<h2>二、涉及页面总览</h2>';
+  html += '<table><tr><th>页面</th><th>改动内容</th><th>本期范围</th></tr>';
+  html += '<tr><td>首页</td><td>新增多单任务banner + 活动浮层</td><td>实验组</td></tr>';
+  html += '<tr><td>活动落地页</td><td>多单任务浮层（进度条+领券）</td><td>实验组</td></tr>';
+  html += '<tr><td>列表页</td><td>新增多单任务banner</td><td>实验组</td></tr>';
+  html += '<tr><td>X页（单程/中转）</td><td>新增多单任务banner</td><td>实验组</td></tr>';
+  html += '<tr><td>填写页</td><td>优惠券外露+利益点tag</td><td>实验组</td></tr>';
+  html += '<tr><td>订单详情页</td><td>新增多单任务banner</td><td>实验组</td></tr>';
+  html += '</table>';
+
+  // 三、首页 & 活动浮层
+  html += '<h2>三、首页 &amp; 活动浮层</h2>';
+  html += '<h3>3.1 首页banner</h3>';
+  html += '<h4>展示条件（全页面通用）</h4>';
+  html += '<p>以下情况<strong>不展示</strong>banner：</p>';
+  html += '<ol><li>当前活动周期内全部五单的券都已用完（过期、领取失败也算）</li>';
+  html += '<li>30天活动周期已结束</li>';
+  html += '<li>命中集团风控（后续未领取的券替换为同面额套餐立减券，活动仍展示但券类型变化）</li></ol>';
+  if (s3) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">新增</span> 疲劳度控制</div>';
+    html += '<p>同一用户单日内跨页面累计曝光超过N次后，后续页面banner降级为弱提示模式。阈值 <span class="tag-pending">[待确认]</span></p></div>';
+  }
+
+  html += '<h4>展示优先级</h4>';
+  html += '<pre>小程序回流 &gt; 日历 &gt; 多单任务banner &gt; 学生</pre>';
+
+  html += '<h4>活动触发 &amp; 时效</h4>';
+  html += '<ul><li>触发条件：满足人群包 + 出票成功</li>';
+  html += '<li>有效期：每轮活动开启后30天内有效</li>';
+  html += '<li>30天后活动自动关闭，等待下一轮活动触发</li>';
+  html += '<li>需要配置开关，关闭后不影响已开启的活动</li></ul>';
+
+  html += '<h4>banner状态机</h4>';
+  html += '<table><tr><th>状态</th><th>banner文案</th><th>触发条件</th></tr>';
+  html += '<tr><td>待解锁</td><td>展示下一阶段目标，如"再出行X单解锁X元券"</td><td>当前阶段未完成</td></tr>';
+  html += '<tr><td>待领取</td><td>"奖励待领取"</td><td>阶段目标完成、券未领取</td></tr>';
+  html += '<tr><td>本单可用</td><td>"本单可用"（订详页为"下单可用"）</td><td>已领取券，当前可使用</td></tr>';
+  html += '<tr><td>领取失败</td><td>"领取失败"</td><td>退票或发券失败</td></tr>';
+  html += '<tr><td>活动完成</td><td>不展示</td><td>所有阶段券都已处理</td></tr></table>';
+
+  // 3.2 活动浮层
+  html += '<h3>3.2 活动浮层</h3>';
+  html += '<h4>内容结构</h4>';
+  let floatContent = `┌──────────────────────────────────┐
+│  [标题] 多单出行有奖     [?]     │
+├──────────────────────────────────┤
+│                                  │`;
+  if (s1) {
+    floatContent += `
+│  ┌─总收益提示────────────────┐   │
+│  │ 完成5单出行，累计可得12元  │   │
+│  └───────────────────────────┘   │`;
+  }
+  floatContent += `
+│  ┌─进度条──────────────────────┐ │
+│  │ ①2元券  ──  ②2元券  ──  ③8/5元券 │ │
+│  │ [状态]      [状态]      [状态]     │ │
+│  └─────────────────────────────┘ │
+│                                  │
+│  福利1: 老客多单出行券包          │
+│  福利2: 尊享抢票助力              │
+│  (第1单出票后自动领取)            │
+│                                  │
+│  [关闭]                          │
+└──────────────────────────────────┘`;
+  html += '<pre>' + floatContent + '</pre>';
+  if (s1) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">新增</span> 预期收益前置模块</div>';
+    html += '<p>浮层顶部进度条上方展示总收益文案："完成5单出行，累计可得12元优惠"，视觉上需强化处理（加大字号或色块背景）。</p></div>';
+  }
+
+  html += '<h4>进度条状态说明</h4>';
+  html += '<table><tr><th>阶段状态</th><th>展示样式</th><th>说明</th></tr>';
+  html += '<tr><td>未解锁</td><td>灰色锁定图标</td><td>未达到该阶段出行要求</td></tr>';
+  html += '<tr><td>已解锁·待领取</td><td>高亮+领取按钮</td><td>满足出行条件，待用户点击领取</td></tr>';
+  html += '<tr><td>已领取</td><td>已完成态 + "本单可用"</td><td>已成功领取</td></tr>';
+  html += '<tr><td>领取失败</td><td>置灰 + "领取失败" + 失败原因小字</td><td>退票或发券失败</td></tr>';
+  html += '<tr><td>自动领取（第1阶段）</td><td>进入活动自动发放</td><td>无需用户操作</td></tr></table>';
+
+  if (s0) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">新增</span> 阶段差异化设计指引</div>';
+    html += '<p><strong>第1阶段（首单激活）：</strong>自动发券，进度条该节点直接显示"已领取·本单可用"，无需用户操作，信息密度最低。</p>';
+    html += '<p><strong>第2-3阶段（复购留存）：</strong>进度条强调目标距离（如"还差2单"），领取按钮视觉突出，制造目标接近感。</p></div>';
+  }
+
+  html += '<h4>领券交互</h4>';
+  html += '<table><tr><th>触发</th><th>反馈</th></tr>';
+  html += '<tr><td>点击"待领取"按钮</td><td>校验出行状态 → 成功: toast "领取成功" + 按钮变"本单可用"</td></tr>';
+  html += '<tr><td>点击"待领取"按钮（未登录）</td><td>toast "请先登录123XX账号检查出行状态" + 弹出登录浮层</td></tr>';
+  if (s2) {
+    html += '<tr><td>领取失败（退票）</td><td>toast "该订单已退票，完成下一单出行仍可继续解锁" + 按钮置灰"领取失败" + 小字展示后续引导</td></tr>';
+  } else {
+    html += '<tr><td>领取失败（退票）</td><td>toast "该订单已退票，奖励领取失败" + 按钮置灰"领取失败"</td></tr>';
+  }
+  html += '<tr><td>领取失败（发券失败）</td><td>按钮置灰"领取失败" + 进度条展示"领取失败"</td></tr></table>';
+
+  if (s2) {
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">新增</span> 领取失败安抚设计</div>';
+    html += '<p>失败状态下增加后续引导文案，让用户明确知道：</p>';
+    html += '<ul><li>失败原因（"该订单已退票，未实际出行"）</li>';
+    html += '<li>后续路径（"完成下一单出行仍可继续解锁后续奖励"）</li>';
+    html += '<li>活动未终止（不影响其他阶段的解锁进度）</li></ul></div>';
+  }
+
+  // 3.3 奖励阶段配置
+  html += '<h3>3.3 奖励阶段配置</h3>';
+  html += '<h4>高差值用户</h4>';
+  html += '<table><tr><th>阶段</th><th>解锁条件</th><th>奖励</th><th>领取方式</th></tr>';
+  html += '<tr><td>第1阶段</td><td>首单出票</td><td>2元立减券</td><td>自动领取</td></tr>';
+  html += '<tr><td>第2阶段</td><td>3单出行</td><td>2元立减券</td><td>手动领取</td></tr>';
+  html += '<tr><td>第3阶段</td><td>5单出行</td><td>8元立减券</td><td>手动领取</td></tr></table>';
+
+  html += '<h4>低差值用户</h4>';
+  html += '<table><tr><th>阶段</th><th>解锁条件</th><th>奖励</th><th>领取方式</th></tr>';
+  html += '<tr><td>第1阶段</td><td>首单出票</td><td>2元立减券</td><td>自动领取</td></tr>';
+  html += '<tr><td>第2阶段</td><td>3单出行</td><td>2元立减券</td><td>手动领取</td></tr>';
+  html += '<tr><td>第3阶段</td><td>5单出行</td><td>5元立减券</td><td>手动领取</td></tr></table>';
+
+  if (s4) {
+    html += '<h4>风控用户券展示</h4>';
+    html += '<div class="highlight-box"><div class="highlight-title"><span class="tag-added">新增</span> 风控券类型标签</div>';
+    html += '<p>命中风控后，浮层内券卡片增加类型说明标签：<strong>"套餐立减券·需满足套餐条件使用"</strong>。</p>';
+    html += '<p>与正常立减券的UI差异：券卡片底部增加一行灰色小字说明使用限制条件。</p></div>';
+  }
+
+  // 3.4 领券业务规则
+  html += '<h3>3.4 领券业务规则</h3>';
+  html += '<table><tr><th>场景</th><th>规则</th></tr>';
+  html += '<tr><td>同步订单</td><td>不算本次活动订单</td></tr>';
+  html += '<tr><td>部分出票成功</td><td>已出票中含未退票的，可解锁1单</td></tr>';
+  html += '<tr><td>改签订单</td><td>不算新的一单，不额外算出行次数；领券时校验改签后已出行票是否退票</td></tr>';
+  html += '<tr><td>一单多张票</td><td>部分票已出行未退票可领取，整单只算1次出行；全部退票则领取失败</td></tr>';
+  html += '<tr><td>命中风控</td><td>后续所有未领到的券全部换成同面额套餐立减券</td></tr></table>';
+
+  // 四、列表页
+  html += '<h2>四、列表页</h2>';
+  html += '<table><tr><th>元素</th><th>说明</th></tr>';
+  html += '<tr><td>多单任务banner</td><td>全部列表页展示（推荐、直达、中转、卧铺过夜tab）</td></tr></table>';
+  html += '<p>展示条件、文案同首页banner。</p>';
+  html += '<pre>优先级：预约票 &gt; 新客 &gt; 多单任务banner &gt; 学生</pre>';
+
+  // 五、X页
+  html += '<h2>五、X页（单程/中转）</h2>';
+  html += '<table><tr><th>元素</th><th>说明</th></tr>';
+  html += '<tr><td>多单任务banner</td><td>单程、中转X页展示</td></tr></table>';
+  html += '<p>展示条件、文案同首页banner。</p>';
+  html += '<pre>优先级：预约票 &gt; 新客 &gt; 多单任务banner</pre>';
+
+  // 六、填写页
+  html += '<h2>六、填写页</h2>';
+  html += '<table><tr><th>元素</th><th>说明</th></tr>';
+  html += '<tr><td>优惠券模块</td><td>已勾选老客返现券时外露"老客专享·立减X元"</td></tr>';
+  html += '<tr><td>利益点tag</td><td>已勾选老客返现券时展示tag</td></tr></table>';
+  html += '<p>适用范围：买票填写页有特殊展示，抢票填写页可用券但无特殊展示。</p>';
+
+  // 七、订单详情页
+  html += '<h2>七、订单详情页</h2>';
+  html += '<h4>展示条件（在首页条件基础上增加）</h4>';
+  html += '<ol><li>订单部分出票成功或全部出票成功</li>';
+  html += '<li>非同步订单</li>';
+  html += '<li>下单时间在本轮活动周期内</li></ol>';
+  html += '<pre>优先级：多单任务banner &gt; 学生</pre>';
+  html += '<h4>文案差异</h4>';
+  html += '<table><tr><th>状态</th><th>文案</th></tr>';
+  html += '<tr><td>本单可用</td><td>替换为"下单可用"（对订后场景为下一单）</td></tr>';
+  html += '<tr><td>其他状态</td><td>与首页等保持一致</td></tr></table>';
+
+  // 八、信息架构
+  html += '<h2>八、信息架构</h2>';
+  html += `<pre>
+┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐
+│  首页   │────→│ 列表页  │────→│  X页    │────→│ 填写页  │
+└────┬────┘     └────┬────┘     └────┬────┘     └─────────┘
+     │               │               │                 │
+     │               │               │                 │ (支付出票)
+     │               │               │                 ▼
+     │               │               │           ┌─────────┐
+     │               │               │           │ 订详页  │
+     │               │               │           └────┬────┘
+     │               │               │                │
+     ▼               ▼               ▼                ▼
+┌──────────────────────────────────────────────────────────┐
+│              活动浮层（点击任意页面banner触发）              │
+│  [进度条] → [领券按钮] → [toast反馈]                     │
+│  [?] → 活动规则页                                        │
+└──────────────────────────────────────────────────────────┘
+</pre>`;
+
+  // 九、全局交互规则
+  html += '<h2>九、全局交互规则</h2>';
+  html += '<ul><li>活动展示、实验分流、活动解锁订单全部限制仅APP端</li>';
+  html += '<li>每轮30天，30天后自动关闭</li>';
+  html += '<li>可通过配置开关控制新活动触发</li>';
+  html += '<li>福利2（尊享抢票助力）：第1单出票后自动领取，无需完成任务</li></ul>';
+
+  // 十、待确认清单
+  html += '<h2>十、待确认清单</h2>';
+  html += '<table><tr><th>#</th><th>事项</th><th>优先级</th></tr>';
+  html += '<tr><td>1</td><td>首页banner具体视觉样式（原型图无法提取）</td><td>高</td></tr>';
+  html += '<tr><td>2</td><td>活动浮层关闭按钮位置和关闭动效</td><td>中</td></tr>';
+  html += '<tr><td>3</td><td>banner在各页面的具体位置坐标/锚点</td><td>高</td></tr>';
+  if (s3) {
+    html += '<tr><td>4</td><td>banner疲劳度控制阈值（单日曝光上限N次）</td><td>高</td></tr>';
+  }
+  html += '<tr><td>' + (s3?5:4) + '</td><td>进度条动效（解锁瞬间是否有动画）</td><td>低</td></tr>';
+  html += '<tr><td>' + (s3?6:5) + '</td><td>活动规则页具体内容（仅有链接，无正文）</td><td>低</td></tr>';
+  html += '</table>';
+
+  return html;
+}
+
+// ========== 文档编辑逻辑 ==========
+let isEditing = false;
+let undoStack = [];
+let redoStack = [];
+let snapshotTimer = null;
+
+function toggleEdit() {
+  const content = document.getElementById('docContent');
+  isEditing = !isEditing;
+  content.contentEditable = isEditing;
+  document.getElementById('btnEdit').textContent = isEditing ? '退出编辑' : '切换编辑';
+  document.getElementById('docStatusText').textContent = isEditing ? '编辑模式' : '只读模式';
+  if (isEditing) {
+    saveSnapshot();
+    content.addEventListener('input', onInput);
+  } else {
+    content.removeEventListener('input', onInput);
+    if (snapshotTimer) clearTimeout(snapshotTimer);
+  }
+}
+
+function onInput() {
+  if (snapshotTimer) clearTimeout(snapshotTimer);
+  snapshotTimer = setTimeout(saveSnapshot, 600);
+}
+
+function saveSnapshot() {
+  const content = document.getElementById('docContent');
+  undoStack.push(content.innerHTML);
+  if (undoStack.length > 50) undoStack.shift();
+  redoStack = [];
+  updateDocButtons();
+}
+
+function undo() {
+  if (undoStack.length <= 1) return;
+  redoStack.push(undoStack.pop());
+  document.getElementById('docContent').innerHTML = undoStack[undoStack.length - 1];
+  updateDocButtons();
+}
+
+function redo() {
+  if (redoStack.length === 0) return;
+  const s = redoStack.pop();
+  undoStack.push(s);
+  document.getElementById('docContent').innerHTML = s;
+  updateDocButtons();
+}
+
+function updateDocButtons() {
+  document.getElementById('btnUndo').disabled = undoStack.length <= 1;
+  document.getElementById('btnRedo').disabled = redoStack.length === 0;
+}
+
+function saveHTML() {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html; charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '交互文档_老客多单任务玩法.html';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function exportPDF() { window.print(); }
+
+function exportMarkdown() {
+  const el = document.getElementById('docContent').cloneNode(true);
+  let md = '';
+  function walk(node) {
+    if (node.nodeType === 3) { md += node.textContent; return; }
+    if (node.nodeType !== 1) return;
+    const tag = node.tagName;
+    if (tag === 'H1') { md += '\n# ' + node.textContent.trim() + '\n\n'; return; }
+    if (tag === 'H2') { md += '\n## ' + node.textContent.trim() + '\n\n'; return; }
+    if (tag === 'H3') { md += '\n### ' + node.textContent.trim() + '\n\n'; return; }
+    if (tag === 'H4') { md += '\n#### ' + node.textContent.trim() + '\n\n'; return; }
+    if (tag === 'P') { md += node.textContent.trim() + '\n\n'; return; }
+    if (tag === 'BLOCKQUOTE') { md += '> ' + node.textContent.trim() + '\n\n'; return; }
+    if (tag === 'PRE') { md += '```\n' + node.textContent + '\n```\n\n'; return; }
+    if (tag === 'UL') { node.querySelectorAll(':scope > li').forEach(li => { md += '- ' + li.textContent.trim() + '\n'; }); md += '\n'; return; }
+    if (tag === 'OL') { let i=1; node.querySelectorAll(':scope > li').forEach(li => { md += i++ + '. ' + li.textContent.trim() + '\n'; }); md += '\n'; return; }
+    if (tag === 'TABLE') {
+      const rows = node.querySelectorAll('tr');
+      rows.forEach((row, idx) => {
+        const cells = row.querySelectorAll('th, td');
+        md += '| ' + Array.from(cells).map(c => c.textContent.trim()).join(' | ') + ' |\n';
+        if (idx === 0) md += '| ' + Array.from(cells).map(() => '---').join(' | ') + ' |\n';
+      });
+      md += '\n'; return;
+    }
+    if (tag === 'DIV' && node.classList.contains('highlight-box')) {
+      md += '\n> **' + (node.querySelector('.highlight-title')?.textContent || '') + '**\n';
+      node.querySelectorAll('p, li').forEach(p => { md += '> ' + p.textContent.trim() + '\n'; });
+      md += '\n'; return;
+    }
+    node.childNodes.forEach(walk);
+  }
+  el.childNodes.forEach(walk);
+  const blob = new Blob([md], { type: 'text/markdown; charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = '交互文档_老客多单任务玩法.md';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>

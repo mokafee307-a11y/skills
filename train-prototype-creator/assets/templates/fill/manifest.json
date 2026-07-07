@@ -1,0 +1,25 @@
+{
+  "page": "fill",
+  "status": "draft",
+  "priority": 1,
+  "entry": "./fill-template.html",
+  "css": "./fill-template.css",
+  "renderer": "./fill-template.js",
+  "dataExample": "./fill-data.example.json",
+  "lockedComponents": [
+    "title-bar",
+    "passenger-card",
+    "seat-card",
+    "service-card",
+    "insurance-card",
+    "bottom-paybar"
+  ],
+  "flexibleAreas": [
+    "journey-summary"
+  ],
+  "notes": [
+    "Use the stabilized fill-page structure and CSS; do not inherit previous scenario semantics from example data.",
+    "The journey summary area remains flexible, but title bar, passenger, seat, service, insurance, and payment bar must stay template-first.",
+    "Favorite / frequent-train controls are hidden by default and should only be enabled when the current task explicitly involves favorites, frequent rides, or trip reuse."
+  ]
+}

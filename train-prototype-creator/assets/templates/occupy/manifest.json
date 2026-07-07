@@ -1,0 +1,23 @@
+{
+  "page": "occupy",
+  "status": "draft",
+  "priority": 1,
+  "entry": "./occupy-template.html",
+  "css": "./occupy-template.css",
+  "renderer": "./occupy-template.js",
+  "dataExample": "./occupy-data.example.json",
+  "lockedComponents": [
+    "title-bar",
+    "order-status",
+    "ticket-card",
+    "cancel-button",
+    "bottom-paybar"
+  ],
+  "flexibleAreas": [
+    "below-ticket-card"
+  ],
+  "notes": [
+    "Use the stabilized occupy-page structure and CSS; do not inherit previous scenario semantics from example data.",
+    "Only the area below the ticket card should vary freely. Header status, ticket card, cancel button, and payment bar must stay template-first."
+  ]
+}

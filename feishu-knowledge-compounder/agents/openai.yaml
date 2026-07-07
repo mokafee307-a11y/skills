@@ -1,0 +1,6 @@
+interface:
+  display_name: "Feishu Knowledge Compounder"
+  short_description: "沉淀 AI 对话到飞书知识库，并追踪缺口、方向和阅读建议"
+  icon_small: "./assets/feishu-knowledge-small.png"
+  icon_large: "./assets/feishu-knowledge-large.png"
+  default_prompt: "Use $feishu-knowledge-compounder to turn this conversation into a Feishu knowledge entry, track my gaps, and send a follow-up reminder."

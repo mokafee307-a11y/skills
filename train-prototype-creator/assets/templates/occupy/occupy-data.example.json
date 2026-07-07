@@ -1,0 +1,57 @@
+{
+  "statusBar": {
+    "time": "9:41"
+  },
+  "titleBar": {
+    "backAsset": "occupyBack"
+  },
+  "orderStatus": {
+    "iconAsset": "occupyOrderStatusSuccess",
+    "title": "占座成功",
+    "subtitle": "请在09分59秒内完成支付"
+  },
+  "ticketCard": {
+    "departure": {
+      "date": "3月21日 周日",
+      "time": "05:53",
+      "station": "上海虹桥站"
+    },
+    "middle": {
+      "model": "CRH2B型",
+      "journeyAsset": "occupyTicketCardTransit",
+      "trainNo": "G4833",
+      "arrowAsset": "occupyTicketCardArrow"
+    },
+    "arrival": {
+      "date": "周日 3月21日",
+      "time": "06:12",
+      "station": "北京南站"
+    },
+    "passenger": {
+      "name": "梁小章",
+      "identity": "身份证 372330********0079",
+      "state": "待支付"
+    },
+    "seat": {
+      "label": "二等座 ¥50",
+      "value": "02车厢01C号"
+    }
+  },
+  "extraSections": [],
+  "cancelButtonLabel": "取消订单",
+  "paybar": {
+    "amount": "245.5",
+    "coupon": "已优惠¥10",
+    "detailsLabel": "明细",
+    "detailsChevronAsset": "sharedAmountDetailsArrowDownward",
+    "buttonLabel": "去支付"
+  },
+  "assets": {
+    "occupyBack": "assets/occupy-back.svg",
+    "occupyOrderStatusSuccess": "assets/occupy-order-status-success.svg",
+    "occupyTicketCardArrow": "assets/occupy-ticket-card-arrow.svg",
+    "occupyTicketCardPoi": "assets/occupy-ticket-card-poi.svg",
+    "occupyTicketCardTransit": "assets/occupy-ticket-card-transit.svg",
+    "sharedAmountDetailsArrowDownward": "assets/shared-amount-details-arrow-downward.svg"
+  }
+}

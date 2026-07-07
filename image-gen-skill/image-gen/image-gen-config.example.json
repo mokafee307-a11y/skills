@@ -1,0 +1,6 @@
+{
+  "api_key": "YOUR_API_KEY",
+  "api_key_id": "YOUR_API_KEY_ID",
+  "base_url": "https://your-openai-compatible-endpoint.example.com/llm",
+  "timeout_seconds": 300
+}

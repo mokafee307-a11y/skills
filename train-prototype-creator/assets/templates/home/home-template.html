@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train Home Template</title>
+  <link rel="stylesheet" href="./home-template.css" />
+</head>
+<body>
+  <div id="home-template-root"></div>
+
+  <script id="home-template-data" type="application/json">
+__HOME_TEMPLATE_DATA__
+  </script>
+  <script src="./home-template.js"></script>
+  <script>
+    window.HomePageTemplate.bootstrap({
+      root: document.getElementById("home-template-root"),
+      dataScriptId: "home-template-data"
+    });
+  </script>
+</body>
+</html>

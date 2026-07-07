@@ -1,0 +1,24 @@
+{
+  "page": "home",
+  "status": "draft",
+  "priority": 1,
+  "entry": "./home-template.html",
+  "css": "./home-template.css",
+  "renderer": "./home-template.js",
+  "dataExample": "./home-data.example.json",
+  "lockedComponents": [
+    "header-banner",
+    "query-card",
+    "bottom-tabbar"
+  ],
+  "flexibleAreas": [
+    "home-secondary-content"
+  ],
+  "notes": [
+    "Use the stabilized home structure and CSS; do not inherit any previous scenario semantics from example data.",
+    "Only the second-screen content area is intended to vary freely. Header banner, query card, and bottom tabbar should stay template-first.",
+    "For conversion, price benefit, points, or pre-booking awareness tasks, place the core message in the query card or adjacent decision slot first; add second-screen content only when it has independent user value.",
+    "When adding a new benefit to the query card, preserve the baseline search labels and controls; use additive fields such as search.benefitTag instead of replacing stateLabel, toggleLabel, trip type, or check labels.",
+    "The fifth-row search check labels in the header/query area stay locked as '学生票' and '高铁动车'; layout keeps the second option right-aligned to the destination column, and checkbox icons default to the unchecked asset unless checked is explicitly true."
+  ]
+}

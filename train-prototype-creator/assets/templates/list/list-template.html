@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train List Template</title>
+  <link rel="stylesheet" href="./list-template.css" />
+</head>
+<body>
+  <div id="list-template-root"></div>
+
+  <script id="list-template-data" type="application/json">
+__LIST_TEMPLATE_DATA__
+  </script>
+  <script src="./list-template.js"></script>
+  <script>
+    window.ListPageTemplate.bootstrap({
+      root: document.getElementById("list-template-root"),
+      dataScriptId: "list-template-data"
+    });
+  </script>
+</body>
+</html>

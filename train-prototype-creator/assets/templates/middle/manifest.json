@@ -1,0 +1,32 @@
+{
+  "page": "middle",
+  "status": "draft",
+  "priority": 1,
+  "entry": "./middle-template.html",
+  "css": "./middle-template.css",
+  "renderer": "./middle-template.js",
+  "dataExample": "./middle-data.example.json",
+  "figma": {
+    "fileKey": "KAzZgNZsvzGWmAB67Qflgm",
+    "sourceNode": "214:6636",
+    "sourceName": "middle"
+  },
+  "lockedComponents": [
+    "middle-titlebar",
+    "middle-train",
+    "middle-zuoxi"
+  ],
+  "flexibleAreas": [
+    "sell-card-list",
+    "trust-tip"
+  ],
+  "assetRules": [
+    "Figma groups prefixed with @svg must be stored as SVG assets and referenced through data assets.",
+    "Do not redraw @svg-middle-train-arrow, @svg-middle-titlebar-arrow-downward, @svg-icon-问号, @svg-middle-sellcard-xiang, or @svg-middel- selling card-vs in CSS."
+  ],
+  "notes": [
+    "Extracted from Figma file 生成UI D2C测试, node 214:6636.",
+    "Use this template first for train middle pages / seat-service selection pages.",
+    "middle-titlebar, middle-train, and middle-zuoxi are fixed modules; sell-card content varies by data but must follow middle-sell-card rules."
+  ]
+}

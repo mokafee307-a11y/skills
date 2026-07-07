@@ -1,0 +1,208 @@
+{
+  "statusBar": {
+    "time": "9:41"
+  },
+  "titleBar": {
+    "backAsset": "fillBack",
+    "steps": [
+      "选乘客",
+      "选座位",
+      "去预订"
+    ],
+    "actions": [
+      {
+        "asset": "fillTitleBarService",
+        "label": "客服"
+      },
+      {
+        "asset": "fillTitleBarNotice",
+        "label": "须知"
+      }
+    ]
+  },
+  "journeySummary": {
+    "tripType": "单程",
+    "route": "上海虹桥-香港西九龙",
+    "date": "07-10",
+    "time": "06:12",
+    "detailLabel": "详情",
+    "detailChevronAsset": "fillArrowDownBlue",
+    "subtext": "卧铺 ¥255.5 + 优享预订 ¥30",
+    "favorite": {
+      "show": false,
+      "saved": true,
+      "defaultLabel": "保存行程",
+      "savedLabel": "已保存行程",
+      "iconOffAsset": "homeCheckboxUnselected",
+      "iconOnAsset": "homeCheckboxSelected"
+    }
+  },
+  "pointsBar": {
+    "label": "积分余额：",
+    "highlight": "6874≈68.74元",
+    "switchOn": false
+  },
+  "passengerCard": {
+    "countLabel": "已选：1人",
+    "addLabel": "添加乘客",
+    "addAsset": "fillPassengerAdd",
+    "deleteAsset": "fillPassengerDelete",
+    "passenger": {
+      "name": "梁小章",
+      "ticketType": "成人票",
+      "identity": "二代身份证 320************309"
+    },
+    "phone": {
+      "label": "手机号码",
+      "countryCode": "+86",
+      "value": "183 1234 5653",
+      "contactsAsset": "fillPassengerContacts"
+    }
+  },
+  "seatCard": {
+    "title": "选座位",
+    "legendLabel": "座席图示",
+    "railLabel": "选「出站快车厢」上下车更快捷",
+    "carriageProduct": {
+      "title": "指定车厢",
+      "strikePrice": "¥12/人",
+      "priceNote": "积分特价¥7",
+      "cells": [
+        {
+          "label": "01"
+        },
+        {
+          "label": "02"
+        },
+        {
+          "label": "03"
+        },
+        {
+          "label": "04",
+          "fast": true,
+          "tagAsset": "fillSeatFast"
+        },
+        {
+          "label": "05",
+          "subLabel": "餐车",
+          "restaurant": true
+        },
+        {
+          "label": "06",
+          "fast": true,
+          "tagAsset": "fillSeatFast"
+        },
+        {
+          "label": "07"
+        },
+        {
+          "label": "08"
+        },
+        {
+          "label": "09"
+        }
+      ]
+    },
+    "seatMapProduct": {
+      "title": "在线选座",
+      "priceNote": "1 / 1",
+      "leftWindowLabel": "靠\n窗",
+      "aisleLabel": "过\n道",
+      "rightWindowLabel": "靠\n窗",
+      "seats": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "F"
+      ]
+    },
+    "choiceProduct": {
+      "choices": [
+        {
+          "title": "靠车门",
+          "highlight": "上下车更方便",
+          "price": "积分特价¥10/人",
+          "strikePrice": "¥15/人",
+          "selected": false
+        },
+        {
+          "title": "远离车门",
+          "highlight": "远离卫生间",
+          "price": "积分特价¥10/人",
+          "strikePrice": "¥15/人",
+          "selected": false
+        }
+      ]
+    }
+  },
+  "serviceCard": {
+    "title": "候车等待，订个贵宾厅更舒适",
+    "mainLabel": "贵宾厅 / 餐食厅套餐",
+    "price": "¥10/份",
+    "subLeft": "茶点零食 · 租车券 · 30天过期自动退",
+    "subRight": "积分已抵¥35/份"
+  },
+  "insuranceCard": {
+    "title": "火车意外组合险",
+    "subtitle": "出行添保障, 家人更安心",
+    "noticeLabel": "投保须知",
+    "options": [
+      {
+        "title": "无保障",
+        "price": "已放弃保障",
+        "copy": [
+          "默认不增加购买步骤"
+        ],
+        "asset": "fillInsuranceNone",
+        "extraAsset": "fillInsuranceNoneRed",
+        "selected": true
+      },
+      {
+        "title": "标准保障",
+        "price": "20元/人",
+        "copy": [
+          "意外最高赔90万",
+          "延误最高赔50元"
+        ],
+        "asset": "fillInsuranceStandard",
+        "selected": false
+      },
+      {
+        "title": "尊享保障",
+        "price": "30元/人",
+        "copy": [
+          "意外最高赔100万",
+          "延误最高赔50元"
+        ],
+        "asset": "fillInsuranceAdvanced",
+        "selected": false
+      }
+    ],
+    "footnote": "本模块为投保页面，由携程保险代理有限公司管理并运营。为确保您已读投保须知等内容，并知晓保险以保险公司和产品条款内容为准。"
+  },
+  "paybar": {
+    "amount": "245.5",
+    "coupon": "已优惠¥10",
+    "detailsLabel": "明细",
+    "detailsChevronAsset": "sharedAmountDetailsArrowDownward",
+    "buttonLabel": "立即预订"
+  },
+  "assets": {
+    "fillBack": "assets/fill-back.svg",
+    "fillTitleBarService": "assets/fill-title-bar-service.svg",
+    "fillTitleBarNotice": "assets/list-title-bar-ticket-share.svg",
+    "fillArrowDownBlue": "assets/fill-arrow-down-blue.svg",
+    "fillPassengerAdd": "assets/fill-passenger-add.svg",
+    "fillPassengerContacts": "assets/fill-passenger-contacts.svg",
+    "fillPassengerDelete": "assets/fill-passenger-delete.svg",
+    "fillSeatFast": "assets/fill-seat-fast.svg",
+    "fillInsuranceNone": "assets/fill-insurance-none.svg",
+    "fillInsuranceNoneRed": "assets/fill-insurance-none-red.svg",
+    "fillInsuranceStandard": "assets/fill-insurance-standard.svg",
+    "fillInsuranceAdvanced": "assets/fill-insurance-advanced.svg",
+    "homeCheckboxSelected": "assets/home-checkbox-select.svg",
+    "homeCheckboxUnselected": "assets/home-checkbox-unselect.svg",
+    "sharedAmountDetailsArrowDownward": "assets/shared-amount-details-arrow-downward.svg"
+  }
+}

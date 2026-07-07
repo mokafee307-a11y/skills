@@ -1,0 +1,908 @@
+# User-owned asset map for train-prototype-creator.
+# 后续请直接在这个文件里补充、修改映射；除非你明确要求，代理默认只读不改。
+# 当前火车票 5 个一级页面与公共资源的标准 page 标识：
+# home=火车首页, list=火车列表页, middle=火车中间页, fill=火车填写页, occupy=火车占座页, shared=公共图标资源
+# 约定：不带 page 前缀的 SVG 文件默认视为 shared 公共资源。
+
+version = 1
+asset_root = "./assets/svg"
+prefer_user_svg = true
+copy_to_output = true
+output_subdir = "wireframes/assets"
+fallback_order = ["user-svg", "figma-export", "manual-css"]
+locked_missing_behavior = "ask-user"
+user_owns_mapping = true
+
+# shared 公共资源
+
+[[mapping]]
+key = "shared.chevron.small"
+page = "shared"
+component = "shared"
+location = "chevron-small"
+selector_hint = "通用小号箭头"
+figma_node = ""
+source = "./assets/svg/arrow-small.svg"
+output_name = "shared-arrow-small.svg"
+lock = "free"
+required = false
+priority = 30
+notes = "不带 page 前缀，默认可跨页面复用。"
+
+[[mapping]]
+key = "shared.amount-details.arrow-downward"
+page = "shared"
+component = "amount-details"
+location = "arrow-downward"
+selector_hint = "金额明细下拉箭头"
+figma_node = ""
+source = "./assets/svg/Amount details-arrow-downward.svg"
+output_name = "shared-amount-details-arrow-downward.svg"
+lock = "soft"
+required = false
+priority = 50
+notes = "适用于金额明细、票价展开等下拉场景。"
+
+[[mapping]]
+key = "shared.title-bar.notice"
+page = "shared"
+component = "title-bar"
+location = "notice-icon"
+selector_hint = "title bar 公共须知图标"
+figma_node = ""
+source = "./assets/svg/title bar-notice.svg"
+output_name = "shared-title-bar-notice.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "优先给没有页面专属 notice 图标的 title bar 复用。"
+
+[[mapping]]
+key = "shared.title-bar.ticket-share"
+page = "shared"
+component = "title-bar"
+location = "share-icon"
+selector_hint = "title bar 公共分享图标"
+figma_node = ""
+source = "./assets/svg/title bar-ticket-share.svg"
+output_name = "shared-title-bar-ticket-share.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "优先给没有页面专属 share 图标的 title bar 复用。"
+
+[[mapping]]
+key = "shared.icon.qanda"
+page = "shared"
+component = "shared"
+location = "q-and-a-icon"
+selector_hint = "公共问答图标"
+figma_node = ""
+source = "./assets/svg/icon-q&a.svg"
+output_name = "shared-icon-qanda.svg"
+lock = "soft"
+required = false
+priority = 40
+notes = "用于问答、帮助、说明类入口。"
+
+# home
+
+[[mapping]]
+key = "home.header.back"
+page = "home"
+component = "title-bar"
+location = "back-button"
+selector_hint = "首页顶部返回按钮"
+figma_node = ""
+source = "./assets/svg/home-back.svg"
+output_name = "home-back.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "若文件存在，首页顶部返回按钮必须优先使用该 SVG。"
+
+[[mapping]]
+key = "home.search.swap"
+page = "home"
+component = "od-card"
+location = "swap-button"
+selector_hint = "首页出发到达切换按钮"
+figma_node = ""
+source = "./assets/svg/home-switch.svg"
+output_name = "home-switch.svg"
+lock = "soft"
+required = false
+priority = 95
+notes = "搜索卡中间切换按钮优先使用该 SVG。"
+
+[[mapping]]
+key = "home.chevron.small"
+page = "home"
+component = "shared"
+location = "small-chevron"
+selector_hint = "首页内使用的小号箭头"
+figma_node = ""
+source = "./assets/svg/home-arrow-small.svg"
+output_name = "home-arrow-small.svg"
+lock = "free"
+required = false
+priority = 40
+notes = "用于首页局部提示或轻量跳转箭头。"
+
+[[mapping]]
+key = "home.checkbox.selected"
+page = "home"
+component = "filter"
+location = "checkbox-selected"
+selector_hint = "首页勾选态复选框"
+figma_node = ""
+source = "./assets/svg/home-checkbox-unselect.svg"
+output_name = "home-checkbox-select.svg"
+lock = "soft"
+required = false
+priority = 50
+notes = "源文件名与视觉语义相反；这里按语义纠正为勾选态输出。"
+
+[[mapping]]
+key = "home.checkbox.unselected"
+page = "home"
+component = "filter"
+location = "checkbox-unselected"
+selector_hint = "首页未勾选态复选框"
+figma_node = ""
+source = "./assets/svg/home-checkbox-select.svg"
+output_name = "home-checkbox-unselect.svg"
+lock = "soft"
+required = false
+priority = 50
+notes = "源文件名与视觉语义相反；这里按语义纠正为未勾选态输出。"
+
+[[mapping]]
+key = "home.traffic.flight"
+page = "home"
+component = "traffic"
+location = "flight-icon"
+selector_hint = "首页顶部机票图标"
+figma_node = ""
+source = "./assets/svg/home-tab-fight.svg"
+output_name = "home-tab-flight.svg"
+lock = "soft"
+required = false
+priority = 65
+notes = "源文件名为 fight，输出名按语义统一为 flight。"
+
+[[mapping]]
+key = "home.tab.ticket-grabbing"
+page = "home"
+component = "bottom-tab"
+location = "ticket-grabbing"
+selector_hint = "首页底部 tab 抢票"
+figma_node = ""
+source = "./assets/svg/home-tab-ticket-grabbing.svg"
+output_name = "home-tab-ticket-grabbing.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "首页底部 tab 图标。"
+
+[[mapping]]
+key = "home.tab.change-seat"
+page = "home"
+component = "bottom-tab"
+location = "change-seat"
+selector_hint = "首页底部 tab 在线换座"
+figma_node = ""
+source = "./assets/svg/home-tab-change seat.svg"
+output_name = "home-tab-change-seat.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "首页底部 tab 图标。"
+
+[[mapping]]
+key = "home.tab.order"
+page = "home"
+component = "bottom-tab"
+location = "order"
+selector_hint = "首页底部 tab 我的订单"
+figma_node = ""
+source = "./assets/svg/home-tab-order.svg"
+output_name = "home-tab-order.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "首页底部 tab 图标。"
+
+[[mapping]]
+key = "home.tab.personal"
+page = "home"
+component = "bottom-tab"
+location = "personal"
+selector_hint = "首页底部 tab 个人中心"
+figma_node = ""
+source = "./assets/svg/home-tab-personal.svg"
+output_name = "home-tab-personal.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "首页底部 tab 图标。"
+
+# list
+
+[[mapping]]
+key = "list.calendar.icon"
+page = "list"
+component = "calendar"
+location = "calendar-button"
+selector_hint = "列表页日历图标"
+figma_node = "214:7619"
+source = "./assets/svg/list-calendar.svg"
+output_name = "list-calendar.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "列表页日历属于默认锁定组件。"
+
+[[mapping]]
+key = "list.calendar.down"
+page = "list"
+component = "calendar"
+location = "calendar-chevron"
+selector_hint = "列表页日历下拉箭头"
+figma_node = "214:7622"
+source = "./assets/svg/list-arrow-adown.svg"
+output_name = "list-calendar-down.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "列表页日历属于默认锁定组件。"
+
+[[mapping]]
+key = "list.calendar.vacation"
+page = "list"
+component = "calendar"
+location = "vacation-badge"
+selector_hint = "列表页日历假期标识"
+figma_node = "214:10333"
+source = "./assets/svg/list-calendar-vacation.svg"
+output_name = "list-calendar-vacation.svg"
+lock = "hard"
+required = false
+priority = 95
+notes = "节假日标记优先使用用户 SVG。"
+
+[[mapping]]
+key = "list.title-bar.back"
+page = "list"
+component = "title-bar"
+location = "back-button"
+selector_hint = "列表页 title bar 返回按钮"
+figma_node = ""
+source = "./assets/svg/list-title bar-back.svg"
+output_name = "list-title-bar-back.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "列表页 title bar 默认锁定。"
+
+[[mapping]]
+key = "list.title-bar.change"
+page = "list"
+component = "title-bar"
+location = "route-change"
+selector_hint = "列表页 title bar 切换出发到达图标"
+figma_node = ""
+source = "./assets/svg/list-title bar-change.svg"
+output_name = "list-title-bar-change.svg"
+lock = "hard"
+required = false
+priority = 95
+notes = "列表页 title bar 默认锁定。"
+
+[[mapping]]
+key = "list.title-bar.ticket-grabbing"
+page = "list"
+component = "title-bar"
+location = "ticket-grabbing-icon"
+selector_hint = "列表页 title bar 抢票图标"
+figma_node = ""
+source = "./assets/svg/list-title bar-ticket-grabbing.svg"
+output_name = "list-title-bar-ticket-grabbing.svg"
+lock = "hard"
+required = false
+priority = 95
+notes = "列表页 title bar 默认锁定。"
+
+[[mapping]]
+key = "list.title-bar.ticket-share"
+page = "list"
+component = "title-bar"
+location = "ticket-share-icon"
+selector_hint = "列表页 title bar 分享图标"
+figma_node = ""
+source = "./assets/svg/list-title bar-ticket-share.svg"
+output_name = "list-title-bar-ticket-share.svg"
+lock = "hard"
+required = false
+priority = 95
+notes = "列表页 title bar 默认锁定。"
+
+[[mapping]]
+key = "list.direct-card.arrow"
+page = "list"
+component = "direct-card"
+location = "middle-arrow"
+selector_hint = "直达车次卡中间箭头"
+figma_node = "214:8778"
+source = "./assets/svg/list-card-arrow.svg"
+output_name = "list-card-arrow.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "直达车次卡属于默认锁定组件。"
+
+[[mapping]]
+key = "list.direct-card.exchange"
+page = "list"
+component = "direct-card"
+location = "trainline-icon-exchange"
+selector_hint = "直达车次卡车次号后的兑换图标"
+figma_node = "214:8868"
+source = "./assets/svg/list-card-exchange.svg"
+output_name = "list-card-exchange.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "名称带 icon 前缀时默认优先复用用户 SVG。"
+
+[[mapping]]
+key = "list.direct-card.identity-card"
+page = "list"
+component = "direct-card"
+location = "trainline-icon-identity-card"
+selector_hint = "直达车次卡车次号后的身份证图标"
+figma_node = "214:8885"
+source = "./assets/svg/list-card-identity card.svg"
+output_name = "list-card-identity-card.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "直达车次卡属于默认锁定组件。"
+
+[[mapping]]
+key = "list.direct-card.fuxingtrain"
+page = "list"
+component = "direct-card"
+location = "trainline-icon-fuxingtrain"
+selector_hint = "直达车次卡车次号后的复兴号图标"
+figma_node = "214:8908"
+source = "./assets/svg/list-card-fuxingtrain.svg"
+output_name = "list-card-fuxingtrain.svg"
+lock = "hard"
+required = false
+priority = 100
+notes = "直达车次卡属于默认锁定组件。"
+
+[[mapping]]
+key = "list.direct-card.departure-station"
+page = "list"
+component = "direct-card"
+location = "station-icon-departure"
+selector_hint = "直达车次卡出发站图标"
+figma_node = ""
+source = "./assets/svg/list-card-departure station.svg"
+output_name = "list-card-departure-station.svg"
+lock = "hard"
+required = false
+priority = 90
+notes = "直达卡内辅助站点图标。"
+
+[[mapping]]
+key = "list.direct-card.destination"
+page = "list"
+component = "direct-card"
+location = "station-icon-destination"
+selector_hint = "直达车次卡到达站图标"
+figma_node = ""
+source = "./assets/svg/list-card-destination.svg"
+output_name = "list-card-destination.svg"
+lock = "hard"
+required = false
+priority = 90
+notes = "直达卡内辅助站点图标。"
+
+[[mapping]]
+key = "list.direct-card.one"
+page = "list"
+component = "direct-card"
+location = "seat-index-one"
+selector_hint = "直达车次卡标号 1"
+figma_node = ""
+source = "./assets/svg/list-card-one.svg"
+output_name = "list-card-one.svg"
+lock = "hard"
+required = false
+priority = 80
+notes = "用于直达卡局部标号。"
+
+[[mapping]]
+key = "list.direct-card.two"
+page = "list"
+component = "direct-card"
+location = "seat-index-two"
+selector_hint = "直达车次卡标号 2"
+figma_node = ""
+source = "./assets/svg/list-card-two.svg"
+output_name = "list-card-two.svg"
+lock = "hard"
+required = false
+priority = 80
+notes = "用于直达卡局部标号。"
+
+[[mapping]]
+key = "list.direct-card.tag-bought"
+page = "list"
+component = "direct-card"
+location = "tag-bought"
+selector_hint = "直达车次卡标签 常买/常买车次"
+figma_node = ""
+source = "./assets/svg/list-card-tag-Bought.svg"
+output_name = "list-card-tag-bought.svg"
+lock = "hard"
+required = false
+priority = 90
+notes = "直达卡标签资源。"
+
+[[mapping]]
+key = "list.direct-card.tag-low-time"
+page = "list"
+component = "direct-card"
+location = "tag-low-time"
+selector_hint = "直达车次卡标签 低耗时/后续班次"
+figma_node = ""
+source = "./assets/svg/list-card-tag-low time.svg"
+output_name = "list-card-tag-low-time.svg"
+lock = "hard"
+required = false
+priority = 90
+notes = "直达卡标签资源。"
+
+[[mapping]]
+key = "list.direct-card.tag-seen"
+page = "list"
+component = "direct-card"
+location = "tag-seen"
+selector_hint = "直达车次卡标签 上次浏览"
+figma_node = ""
+source = "./assets/svg/list-card-tag-seen.svg"
+output_name = "list-card-tag-seen.svg"
+lock = "hard"
+required = false
+priority = 90
+notes = "直达卡标签资源。"
+
+[[mapping]]
+key = "list.tab.all"
+page = "list"
+component = "sort-tab"
+location = "all"
+selector_hint = "列表页底部排序 tab 全部/高级筛选"
+figma_node = ""
+source = "./assets/svg/list-tab-all.svg"
+output_name = "list-tab-all.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "底部排序栏图标。"
+
+[[mapping]]
+key = "list.tab.early"
+page = "list"
+component = "sort-tab"
+location = "early"
+selector_hint = "列表页底部排序 tab 出发最早"
+figma_node = ""
+source = "./assets/svg/list-tab-early.svg"
+output_name = "list-tab-early.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "底部排序栏图标。"
+
+[[mapping]]
+key = "list.tab.time"
+page = "list"
+component = "sort-tab"
+location = "time"
+selector_hint = "列表页底部排序 tab 耗时最短"
+figma_node = ""
+source = "./assets/svg/list-tab-time.svg"
+output_name = "list-tab-time.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "底部排序栏图标。"
+
+[[mapping]]
+key = "list.tab.price"
+page = "list"
+component = "sort-tab"
+location = "price"
+selector_hint = "列表页底部排序 tab 价格最低"
+figma_node = ""
+source = "./assets/svg/list-tab-price.svg"
+output_name = "list-tab-price.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "底部排序栏图标。"
+
+# middle
+
+[[mapping]]
+key = "middle.selling-card.vs"
+page = "middle"
+component = "selling-card"
+location = "vs"
+selector_hint = "中间页卖点卡 VS 图形"
+figma_node = "214:6672"
+source = "./assets/svg/middel- selling card-vs.svg"
+output_name = "middle-selling-card-vs.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "源文件名存在拼写错误，输出名已规范化。"
+
+[[mapping]]
+key = "middle.selling-card.xiang"
+page = "middle"
+component = "selling-card"
+location = "benefit-icon-xiang"
+selector_hint = "中间页卖点卡权益“享”图标"
+figma_node = "214:6707"
+source = "./assets/svg/middle-sellcard-xiang.svg"
+output_name = "middle-sellcard-xiang.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "@svg-middle-sellcard-xiang 必须以 SVG 资产调用，不用 CSS 重画。"
+
+[[mapping]]
+key = "middle.selling-card.subsidy"
+page = "middle"
+component = "selling-card"
+location = "subsidy"
+selector_hint = "中间页卖点卡补贴图形"
+figma_node = ""
+source = "./assets/svg/middle-Selling card-subsidy.svg"
+output_name = "middle-selling-card-subsidy.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "中间页卖点卡资产。"
+
+[[mapping]]
+key = "middle.selling-card.unfold"
+page = "middle"
+component = "selling-card"
+location = "unfold"
+selector_hint = "中间页卖点卡展开箭头"
+figma_node = ""
+source = "./assets/svg/middle-middle-Selling card-unfold.svg"
+output_name = "middle-selling-card-unfold.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "中间页卖点卡资产。"
+
+[[mapping]]
+key = "middle.selling-card.save-money"
+page = "middle"
+component = "selling-card"
+location = "save-money"
+selector_hint = "中间页卖点卡省钱图形"
+figma_node = ""
+source = "./assets/svg/middle-selling card-save money.svg"
+output_name = "middle-selling-card-save-money.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "中间页卖点卡资产。"
+
+[[mapping]]
+key = "middle.title-bar.arrow-downward"
+page = "middle"
+component = "title-bar"
+location = "arrow-downward"
+selector_hint = "中间页 title bar 下拉箭头"
+figma_node = "224:665"
+source = "./assets/svg/middle-titlebar-arrow-downward.svg"
+output_name = "middle-titlebar-arrow-downward.svg"
+lock = "soft"
+required = false
+priority = 65
+notes = "中间页顶部控件资产。"
+
+[[mapping]]
+key = "middle.title-bar.notice"
+page = "middle"
+component = "title-bar"
+location = "notice-icon"
+selector_hint = "中间页 title bar 须知图标"
+figma_node = ""
+source = "./assets/svg/middle-titlebar-notice.svg"
+output_name = "middle-titlebar-notice.svg"
+lock = "soft"
+required = false
+priority = 65
+notes = "中间页顶部控件资产。"
+
+[[mapping]]
+key = "middle.train.arrow"
+page = "middle"
+component = "train-summary"
+location = "route-arrow"
+selector_hint = "中间页车次摘要中部方向箭头"
+figma_node = "214:6846"
+source = "./assets/svg/middle-train-arrow.svg"
+output_name = "middle-train-arrow.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "@svg-middle-train-arrow 必须以 SVG 资产调用。"
+
+[[mapping]]
+key = "middle.icon.help"
+page = "middle"
+component = "shared"
+location = "help-icon"
+selector_hint = "中间页问号说明图标"
+figma_node = "214:6736,214:6827,214:6834,214:6892"
+source = "./assets/svg/icon-q&a.svg"
+output_name = "middle-icon-help.svg"
+lock = "soft"
+required = false
+priority = 65
+notes = "@svg-icon-问号 统一复用公共问答 SVG 资产。"
+
+# fill
+
+[[mapping]]
+key = "fill.header.back"
+page = "fill"
+component = "title-bar"
+location = "back-button"
+selector_hint = "填写页顶部返回按钮"
+figma_node = ""
+source = "./assets/svg/list-title bar-back.svg"
+output_name = "fill-back.svg"
+lock = "hard"
+required = false
+priority = 95
+notes = "当前复用列表页返回按钮 SVG。"
+
+[[mapping]]
+key = "fill.header.service"
+page = "fill"
+component = "title-bar"
+location = "service-icon"
+selector_hint = "填写页顶部客服图标"
+figma_node = ""
+source = "./assets/svg/fill-title bar-service.svg"
+output_name = "fill-title-bar-service.svg"
+lock = "soft"
+required = false
+priority = 85
+notes = "填写页 title bar 图标。"
+
+[[mapping]]
+key = "fill.header.notice"
+page = "fill"
+component = "title-bar"
+location = "notice-icon"
+selector_hint = "填写页顶部须知图标"
+figma_node = ""
+source = "./assets/svg/list-title bar-ticket-share.svg"
+output_name = "fill-title-bar-notice.svg"
+lock = "soft"
+required = false
+priority = 80
+notes = "当前复用列表页 title bar 右侧按钮图标资源。"
+
+[[mapping]]
+key = "fill.control.arrow-down-blue"
+page = "fill"
+component = "control"
+location = "arrow-down-blue"
+selector_hint = "填写页蓝色下拉箭头"
+figma_node = ""
+source = "./assets/svg/fill-arrow-adown-blue.svg"
+output_name = "fill-arrow-down-blue.svg"
+lock = "soft"
+required = false
+priority = 60
+notes = "填写页蓝色选择控件的下拉箭头。"
+
+[[mapping]]
+key = "fill.passenger.add"
+page = "fill"
+component = "passenger"
+location = "add"
+selector_hint = "填写页添加乘客图标"
+figma_node = ""
+source = "./assets/svg/fill-passenger-add.svg"
+output_name = "fill-passenger-add.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "乘客区域图标。"
+
+[[mapping]]
+key = "fill.passenger.contacts"
+page = "fill"
+component = "passenger"
+location = "contacts"
+selector_hint = "填写页乘客通讯录图标"
+figma_node = ""
+source = "./assets/svg/fill-passenger-contacts.svg"
+output_name = "fill-passenger-contacts.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "乘客区域图标。"
+
+[[mapping]]
+key = "fill.passenger.delete"
+page = "fill"
+component = "passenger"
+location = "delete"
+selector_hint = "填写页删除乘客图标"
+figma_node = ""
+source = "./assets/svg/fill-passenger-delect.svg"
+output_name = "fill-passenger-delete.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "源文件名中为 delect，输出名已规范为 delete。"
+
+[[mapping]]
+key = "fill.seat.fast"
+page = "fill"
+component = "seat"
+location = "fast-tag"
+selector_hint = "填写页快速上车/出站快标签"
+figma_node = ""
+source = "./assets/svg/fill-seat-fast.svg"
+output_name = "fill-seat-fast.svg"
+lock = "soft"
+required = false
+priority = 70
+notes = "座位选择区标签图形。"
+
+[[mapping]]
+key = "fill.insurance.none"
+page = "fill"
+component = "insurance"
+location = "none"
+selector_hint = "填写页保险 无保障"
+figma_node = ""
+source = "./assets/svg/fill-insurance-none.svg"
+output_name = "fill-insurance-none.svg"
+lock = "soft"
+required = false
+priority = 75
+notes = "保险选项图形。"
+
+[[mapping]]
+key = "fill.insurance.none-red"
+page = "fill"
+component = "insurance"
+location = "none-red"
+selector_hint = "填写页保险 无保障红标"
+figma_node = ""
+source = "./assets/svg/fill-insurance-none-red.svg"
+output_name = "fill-insurance-none-red.svg"
+lock = "soft"
+required = false
+priority = 75
+notes = "保险选项图形。"
+
+[[mapping]]
+key = "fill.insurance.standard"
+page = "fill"
+component = "insurance"
+location = "standard"
+selector_hint = "填写页保险 标准保障"
+figma_node = ""
+source = "./assets/svg/fill-insurance-standard.svg"
+output_name = "fill-insurance-standard.svg"
+lock = "soft"
+required = false
+priority = 75
+notes = "保险选项图形。"
+
+[[mapping]]
+key = "fill.insurance.advanced"
+page = "fill"
+component = "insurance"
+location = "advanced"
+selector_hint = "填写页保险 尊享保障"
+figma_node = ""
+source = "./assets/svg/fill-insurance-advanced.svg"
+output_name = "fill-insurance-advanced.svg"
+lock = "soft"
+required = false
+priority = 75
+notes = "保险选项图形。"
+
+# occupy
+
+[[mapping]]
+key = "occupy.header.back"
+page = "occupy"
+component = "title-bar"
+location = "back-button"
+selector_hint = "占座页顶部返回按钮"
+figma_node = ""
+source = "./assets/svg/list-title bar-back.svg"
+output_name = "occupy-back.svg"
+lock = "hard"
+required = false
+priority = 95
+notes = "当前复用列表页返回按钮 SVG。"
+
+[[mapping]]
+key = "occupy.order-status.success"
+page = "occupy"
+component = "order-status"
+location = "success-icon"
+selector_hint = "占座页订单状态成功图标"
+figma_node = ""
+source = "./assets/svg/occupy-order status-success.svg"
+output_name = "occupy-order-status-success.svg"
+lock = "soft"
+required = false
+priority = 80
+notes = "当前用于占座成功态图标。"
+
+[[mapping]]
+key = "occupy.ticket-card.arrow"
+page = "occupy"
+component = "ticket-card"
+location = "arrow"
+selector_hint = "占座页票面卡片箭头"
+figma_node = ""
+source = "./assets/svg/occupy-ticket card-arrow.svg"
+output_name = "occupy-ticket-card-arrow.svg"
+lock = "hard"
+required = false
+priority = 85
+notes = "票面信息属于默认锁定组件。"
+
+[[mapping]]
+key = "occupy.ticket-card.poi"
+page = "occupy"
+component = "ticket-card"
+location = "poi"
+selector_hint = "占座页票面卡片 POI 图标"
+figma_node = ""
+source = "./assets/svg/occupy-ticket card-poi.svg"
+output_name = "occupy-ticket-card-poi.svg"
+lock = "hard"
+required = false
+priority = 85
+notes = "票面信息属于默认锁定组件。"
+
+[[mapping]]
+key = "occupy.ticket-card.transit"
+page = "occupy"
+component = "ticket-card"
+location = "transit"
+selector_hint = "占座页票面卡片中转图标"
+figma_node = ""
+source = "./assets/svg/occupy-ticket card-transit.svg"
+output_name = "occupy-ticket-card-transit.svg"
+lock = "hard"
+required = false
+priority = 85
+notes = "票面信息属于默认锁定组件。"

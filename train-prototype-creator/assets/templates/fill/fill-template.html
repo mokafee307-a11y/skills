@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Train Fill Template</title>
+  <link rel="stylesheet" href="./fill-template.css" />
+</head>
+<body>
+  <div id="fill-template-root"></div>
+
+  <script id="fill-template-data" type="application/json">
+__FILL_TEMPLATE_DATA__
+  </script>
+  <script src="./fill-template.js"></script>
+  <script>
+    window.FillPageTemplate.bootstrap({
+      root: document.getElementById("fill-template-root"),
+      dataScriptId: "fill-template-data"
+    });
+  </script>
+</body>
+</html>

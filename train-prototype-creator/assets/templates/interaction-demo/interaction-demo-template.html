@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Train Interaction Demo Template</title>
+  <link rel="stylesheet" href="./interaction-demo-template.css" />
+</head>
+<body>
+  <div id="interaction-demo-root"></div>
+
+  <script id="interaction-demo-data" type="application/json">
+__INTERACTION_DEMO_DATA__
+  </script>
+  <script src="./interaction-demo-template.js"></script>
+  <script>
+    window.InteractionDemoTemplate.bootstrap({
+      root: document.getElementById("interaction-demo-root"),
+      dataScriptId: "interaction-demo-data"
+    });
+  </script>
+</body>
+</html>

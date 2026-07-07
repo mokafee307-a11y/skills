@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Link Peta"
+  short_description: "Connect Codex to a custom API gateway, sync the safe fallback chat model, and set the project model for future turns."
+  default_prompt: "Use this skill to connect Codex to a custom base URL and API key, set the current project default model to claude-sonnet-4-6 or another API model like image-2, sync the user-level fallback model when the target is an agent-compatible chat model so future threads also default to it, and explain that the change applies to subsequent turns or new threads rather than the current response model."
