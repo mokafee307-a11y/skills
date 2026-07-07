@@ -1,0 +1,478 @@
+figma-generate-library/assets/icon.svg
+  ai_agent 1-28
+figma-use/references/component-patterns.md
+  ai_agent 1-488
+train-prototype-creator/assets/svg/list-calendar.svg
+  ai_agent 1-3
+train-prototype-creator/prototypes/commute-ticket-booking-spec.md
+  ai_agent 1-205
+figma-generate-library/scripts/inspectFileStructure.js
+  ai_agent 1-121
+"train-prototype-creator/assets/svg/occupy-ticket card-poi.svg"
+  ai_agent 1-4
+train-prototype-creator/interaction-spec.md
+  ai_agent 1-383
+train-prototype-creator/assets/svg/fill-passenger-delect.svg
+  ai_agent 1-4
+figma-generate-library/scripts/createSemanticTokens.js
+  ai_agent 1-108
+figma-create-design-system-rules/agents/openai.yaml
+  ai_agent 1-14
+train-prototype-creator/assets/templates/home/home-data.example.json
+  ai_agent 1-142
+train-prototype-creator/assets/templates/fill/fill-template.js
+  ai_agent 1-518
+figma-create-new-file/maintainers.yml
+  ai_agent 1
+figma-code-connect-components/agents/openai.yaml
+  ai_agent 1-14
+figma-generate-design/SKILL.md
+  ai_agent 1-341
+figma-generate-library/references/naming-conventions.md
+  ai_agent 1-527
+train-prototype-creator/assets/svg/home-arrow-small.svg
+  ai_agent 1-3
+feishu-knowledge-compounder/references/book-metadata.json
+  ai_agent 1-40
+figma-generate-design/agents/openai.yaml
+  ai_agent 1-14
+train-prototype-creator/references/ux-writing.md
+  ai_agent 1-190
+figma-use/references/plugin-api-standalone.d.ts
+  ai_agent 1-11293
+figma-create-design-system-rules/references/rule-template.md
+  ai_agent 1-15
+"train-prototype-creator/assets/svg/list-card-identity card.svg"
+  ai_agent 1-3
+train-prototype-creator/assets/svg/home-back.svg
+  ai_agent 1-3
+feishu-knowledge-compounder/scripts/feishu_compounder.py
+  ai_agent 1-7056
+train-prototype-creator/assets/svg/list-card-fuxingtrain.svg
+  ai_agent 1-3
+figma-use/agents/openai.yaml
+  ai_agent 1-14
+"train-prototype-creator/assets/svg/list-card-tag-low time.svg"
+  ai_agent 1-5
+train-prototype-creator/assets/templates/home/home-template.js
+  ai_agent 1-561
+train-prototype-creator/examples.md
+  ai_agent 1-52
+train-prototype-creator/CHANGELOG.md
+  ai_agent 1-82
+train-prototype-creator/assets/svg/list-tab-all.svg
+  ai_agent 1-3
+figma-generate-library/references/error-recovery.md
+  ai_agent 1-540
+image-gen-skill/image-gen/templates/04_watercolor_sketch.md
+  ai_agent 1-9
+figma-use/references/working-with-design-systems/wwds-text-styles.md
+  ai_agent 1-90
+figma-use/references/validation-and-recovery.md
+  ai_agent 1-109
+"train-prototype-creator/assets/svg/middle-Selling card-subsidy.svg"
+  ai_agent 1-13
+train-prototype-creator/assets/templates/interaction-demo/interaction-demo-template.html
+  ai_agent 1-23
+image-gen-skill/image-gen/image-gen-config.example.json
+  s_24b8be38db83ce::t_447595e0d82c51 1-6
+train-prototype-creator/scripts/validate_asset_map.py
+  ai_agent 1-220
+train-prototype-creator/assets/svg/home-tab-fight.svg
+  ai_agent 1-9
+image-gen-skill/image-gen/templates/03_cyberpunk_city.md
+  ai_agent 1-9
+train-prototype-creator/assets/svg/middle-titlebar-notice.svg
+  ai_agent 1-5
+train-prototype-creator/assets/svg/middle-train-arrow.svg
+  ai_agent 1-7
+figma-use/references/text-style-patterns.md
+  ai_agent 1-203
+codex-link-peta/scripts/setup_provider.py
+  ai_agent 1-522
+feishu-knowledge-compounder/references/feishu-setup.md
+  ai_agent 1-241
+figma-use/references/api-reference.md
+  ai_agent 1-301
+feishu-knowledge-compounder/.env.example
+  ai_agent 1-34
+train-prototype-creator/assets/svg/fill-insurance-none-red.svg
+  ai_agent 1-5
+figma-generate-library/scripts/createVariableCollection.js
+  ai_agent 1-49
+train-prototype-creator/assets/svg/icon-q&a.svg
+  ai_agent 1-9
+train-prototype-creator/assets/svg/list-card-tag-Bought.svg
+  ai_agent 1-8
+train-prototype-creator/assets/templates/middle/middle-template.css
+  ai_agent 1-588
+train-prototype-creator/assets/templates/middle/middle-data.example.json
+  ai_agent 1-144
+figma-generate-design/maintainers.yml
+  ai_agent 1
+train-prototype-creator/assets/templates/occupy/occupy-template.html
+  ai_agent 1-23
+train-prototype-creator/assets/svg/fill-insurance-none.svg
+  ai_agent 1-29
+train-prototype-creator/SKILL.md
+  ai_agent 1-333
+"train-prototype-creator/assets/svg/fill-title bar-service.svg"
+  ai_agent 1-4
+feishu-knowledge-compounder/create_views.py
+  ai_agent 1-161
+train-prototype-creator/assets/svg/fill-passenger-add.svg
+  ai_agent 1-6
+"train-prototype-creator/assets/svg/list-title bar-ticket-grabbing.svg"
+  ai_agent 1-5
+image-gen-skill/image-gen/templates/01_anime_portrait.md
+  ai_agent 1-9
+train-prototype-creator/assets/templates/interaction-demo/manifest.json
+  ai_agent 1-30
+train-prototype-creator/assets/svg/list-tab-time.svg
+  ai_agent 1-4
+figma-generate-library/scripts/rehydrateState.js
+  ai_agent 1-92
+figma-use/references/plugin-api-standalone.index.md
+  ai_agent 1-441
+figma-use/references/working-with-design-systems/wwds-components.md
+  ai_agent 1-50
+figma-use/references/working-with-design-systems/wwds.md
+  ai_agent 1-41
+figma-generate-library/SKILL.md
+  ai_agent 1-314
+figma-generate-library/references/token-creation.md
+  ai_agent 1-962
+figma/assets/figma-small.svg
+  ai_agent 1-3
+train-prototype-creator/assets/config/design-tokens.json
+  ai_agent 1-226
+train-prototype-creator/assets/svg/fill-seat-fast.svg
+  ai_agent 1-17
+train-prototype-creator/assets/svg/list-card-arrow.svg
+  ai_agent 1-21
+train-prototype-creator/assets/templates/fill/fill-data.example.json
+  ai_agent 1-208
+train-prototype-creator/assets/svg/list-tab-price.svg
+  ai_agent 1-4
+figma-use/maintainers.yml
+  ai_agent 1
+train-prototype-creator/assets/svg/list-card-two.svg
+  ai_agent 1-4
+figma-use/LICENSE.TXT
+  ai_agent 1-2
+figma-use/references/working-with-design-systems/wwds-variables.md
+  ai_agent 1-64
+figma-create-new-file/LICENSE.TXT
+  ai_agent 1-2
+codex-link-peta/SKILL.md
+  ai_agent 1-105
+train-prototype-creator/assets/svg/list-card-tag-seen.svg
+  ai_agent 1-8
+train-prototype-creator/assets/svg/list-calendar-vacation.svg
+  ai_agent 1-4
+train-prototype-creator/assets/svg/middle-titlebar-arrow-downward.svg
+  ai_agent 1-3
+figma-code-connect-components/references/mapping-checklist.md
+  ai_agent 1-7
+feishu-knowledge-compounder/SKILL.md
+  ai_agent 1-492
+figma-generate-library/agents/openai.yaml
+  ai_agent 1-14
+train-prototype-creator/assets/templates/list/list-data.example.json
+  ai_agent 1-257
+image-gen-skill/image-gen/generate_image.sh
+  ai_agent 1-114
+figma-generate-library/assets/figma-small.svg
+  ai_agent 1-3
+train-prototype-creator/assets/templates/list/list-template.css
+  ai_agent 1-814
+figma-use/references/effect-style-patterns.md
+  ai_agent 1-123
+figma-implement-design/assets/icon.svg
+  ai_agent 1-28
+figma/references/figma-mcp-config.md
+  ai_agent 1-35
+figma-use/references/common-patterns.md
+  ai_agent 1-512
+"train-prototype-creator/assets/svg/middel- selling card-vs.svg"
+  ai_agent 1-22
+figma-use/SKILL.md
+  ai_agent 1-233
+ux-design-document/SKILL.md
+  ai_agent 1-266
+train-prototype-creator/assets/svg/fill-insurance-standard.svg
+  ai_agent 1-29
+"train-prototype-creator/assets/svg/title bar-notice.svg"
+  ai_agent 1-5
+train-prototype-creator/assets/templates/occupy/occupy-data.example.json
+  ai_agent 1-57
+ux-design-document/示例_交互文档_老客多单任务玩法.html
+  ai_agent 1-768
+train-prototype-creator/assets/templates/interaction-demo/interaction-demo-template.js
+  ai_agent 1-1053
+train-prototype-creator/references/rules/page-scaffolds.md
+  ai_agent 1-157
+figma-create-new-file/assets/figma-small.svg
+  ai_agent 1-3
+train-prototype-creator/assets/svg/list-card-exchange.svg
+  ai_agent 1-3
+train-prototype-creator/assets/templates/interaction-demo/interaction-demo-template.css
+  ai_agent 1-949
+train-prototype-creator/assets/svg/asset-map.toml
+  ai_agent 1-908
+"train-prototype-creator/assets/svg/middle-middle-Selling card-unfold.svg"
+  ai_agent 1-9
+figma/assets/icon.svg
+  ai_agent 1-28
+feishu-knowledge-compounder/README.md
+  ai_agent 1-22
+"train-prototype-creator/assets/svg/title bar-ticket-share.svg"
+  ai_agent 1-5
+train-prototype-creator/assets/svg/fill-passenger-contacts.svg
+  ai_agent 1-7
+image-gen-skill/image-gen/skill.md
+  ai_agent 1-200
+train-prototype-creator/scripts/choose_output_folder.sh
+  ai_agent 1-51
+codex-link-peta/agents/openai.yaml
+  ai_agent 1-4
+train-prototype-creator/references/figma-mcp-setup.md
+  ai_agent 1-70
+figma-generate-library/references/code-connect-setup.md
+  ai_agent 1-260
+README.md
+  s_24b8be38db83ce::t_4649faf7855857 3-24
+figma-code-connect-components/assets/icon.svg
+  ai_agent 1-28
+train-prototype-creator/assets/svg/home-tab-ticket-grabbing.svg
+  ai_agent 1-3
+"train-prototype-creator/assets/svg/list-title bar-back.svg"
+  ai_agent 1-3
+"train-prototype-creator/assets/svg/list-title bar-change.svg"
+  ai_agent 1-4
+train-prototype-creator/assets/svg/list-tab-early.svg
+  ai_agent 1-3
+train-prototype-creator/assets/templates/list/list-template.html
+  ai_agent 1-23
+figma/SKILL.md
+  ai_agent 1-42
+figma-implement-design/assets/figma-small.svg
+  ai_agent 1-3
+image-gen-skill/image-gen/generate_image.py
+  ai_agent 1-90
+figma-create-design-system-rules/LICENSE.TXT
+  ai_agent 1-2
+feishu-knowledge-compounder/create_dashboard.py
+  ai_agent 1-287
+figma-use/references/gotchas.md
+  ai_agent 1-599
+train-prototype-creator/assets/templates/home/home-template.html
+  ai_agent 1-23
+figma/LICENSE.txt
+  ai_agent 1-2
+train-prototype-creator/assets/svg/fill-arrow-adown-blue.svg
+  ai_agent 1-3
+train-prototype-creator/references/copy-review.md
+  ai_agent 1-75
+figma-use/references/working-with-design-systems/wwds-effect-styles.md
+  ai_agent 1-52
+figma-create-design-system-rules/SKILL.md
+  ai_agent 1-537
+figma-generate-library/scripts/validateCreation.js
+  ai_agent 1-83
+figma-create-design-system-rules/assets/icon.svg
+  ai_agent 1-28
+figma-code-connect-components/scripts/normalize_node_id.py
+  ai_agent 1-25
+figma-create-design-system-rules/assets/figma-small.svg
+  ai_agent 1-3
+train-prototype-creator/assets/svg/home-checkbox-unselect.svg
+  ai_agent 1-3
+train-prototype-creator/assets/svg/home-checkbox-select.svg
+  ai_agent 1-3
+ux-design-analysis/README.md
+  ai_agent 1-81
+figma-code-connect-components/SKILL.md
+  ai_agent 1-349
+figma-generate-design/LICENSE.TXT
+  ai_agent 1-2
+figma-generate-library/scripts/cleanupOrphans.js
+  ai_agent 1-127
+"train-prototype-creator/assets/svg/occupy-ticket card-transit.svg"
+  ai_agent 1-21
+train-prototype-creator/assets/svg/list-card-one.svg
+  ai_agent 1-4
+figma-implement-design/LICENSE.txt
+  ai_agent 1-2
+train-prototype-creator/assets/templates/fill/manifest.json
+  ai_agent 1-25
+train-prototype-creator/references/svg-asset-mapping.md
+  ai_agent 1-68
+figma-generate-library/scripts/bindVariablesToComponent.js
+  ai_agent 1-110
+figma-generate-library/scripts/createComponentWithVariants.js
+  ai_agent 1-148
+figma-use/references/working-with-design-systems/maintainers.yml
+  ai_agent 1-9
+train-prototype-creator/references/rules/list-components.md
+  ai_agent 1-60
+train-prototype-creator/ota-screen-patterns.md
+  ai_agent 1-144
+figma-use/references/variable-patterns.md
+  ai_agent 1-354
+train-prototype-creator/assets/templates/occupy/manifest.json
+  ai_agent 1-23
+feishu-knowledge-compounder/setup_dashboard.py
+  ai_agent 1-69
+figma-generate-library/references/documentation-creation.md
+  ai_agent 1-834
+train-prototype-creator/assets/templates/fill/fill-template.css
+  ai_agent 1-946
+train-prototype-creator/assets/templates/middle/middle-template.html
+  ai_agent 1-23
+image-gen-skill/image-gen/templates/05_studio_photo.md
+  ai_agent 1-9
+figma-implement-design/agents/openai.yaml
+  ai_agent 1-14
+figma-create-design-system-rules/scripts/check_agents_md.sh
+  ai_agent 1-9
+figma-use/references/working-with-design-systems/wwds-components--using.md
+  ai_agent 1-17
+"train-prototype-creator/assets/svg/occupy-ticket card-arrow.svg"
+  ai_agent 1-3
+train-prototype-creator/assets/templates/home/manifest.json
+  ai_agent 1-24
+train-prototype-creator/assets/svg/home-switch.svg
+  ai_agent 1-3
+figma-use/assets/figma-small.svg
+  ai_agent 1-3
+ux-design-analysis/SKILL.md
+  ai_agent 1-252
+figma-generate-design/assets/icon.svg
+  ai_agent 1-28
+train-prototype-creator/assets/templates/home/home-template.css
+  ai_agent 1-1094
+train-prototype-creator/assets/templates/interaction-demo/interaction-demo-data.example.json
+  ai_agent 1-348
+train-prototype-creator/assets/svg/fill-insurance-advanced.svg
+  ai_agent 1-64
+figma-use/references/plugin-api-patterns.md
+  ai_agent 1-513
+figma/references/figma-tools-and-prompts.md
+  ai_agent 1-34
+"train-prototype-creator/assets/svg/home-tab-change seat.svg"
+  ai_agent 1-3
+train-prototype-creator/assets/templates/middle/middle-template.js
+  ai_agent 1-312
+.gitignore
+  s_24b8be38db83ce::t_b25421ec32975b 19,21-23,56,62-65
+  s_24b8be38db83ce::t_51d1741e577988 42
+  s_24b8be38db83ce::t_447595e0d82c51 20
+  s_24b8be38db83ce::t_f1ed02714ba249 66-71
+image-gen-skill/README.md
+  ai_agent 1-187
+train-prototype-creator/assets/svg/arrow-small.svg
+  ai_agent 1-3
+"train-prototype-creator/assets/svg/list-card-departure station.svg"
+  ai_agent 1-4
+figma/agents/openai.yaml
+  ai_agent 1-14
+figma-use/assets/icon.svg
+  ai_agent 1-28
+ux-design-analysis/references/quality-checklist.md
+  ai_agent 1-78
+feishu-knowledge-compounder/references/note-schema.md
+  ai_agent 1-141
+figma-use/references/working-with-design-systems/wwds-components--creating.md
+  ai_agent 1-17
+train-prototype-creator/assets/svg/list-card-destination.svg
+  ai_agent 1-4
+figma-generate-library/maintainers.yml
+  ai_agent 1-3
+"train-prototype-creator/assets/svg/occupy-order status-success.svg"
+  ai_agent 1-3
+figma-implement-design/SKILL.md
+  ai_agent 1-258
+train-prototype-creator/assets/svg/middle-sellcard-xiang.svg
+  ai_agent 1-4
+figma-create-new-file/assets/icon.svg
+  ai_agent 1-28
+train-prototype-creator/references/rules/middle-sell-card.md
+  ai_agent 1-77
+feishu-knowledge-compounder/agents/openai.yaml
+  ai_agent 1-6
+figma-code-connect-components/LICENSE.TXT
+  ai_agent 1-2
+figma-use/references/working-with-design-systems/wwds-variables--using.md
+  ai_agent 1-13
+train-prototype-creator/assets/templates/list/manifest.json
+  ai_agent 1-23
+train-prototype-creator/uikit-reference.md
+  ai_agent 1-125
+ux-design-analysis/references/scaffold.html
+  ai_agent 1-525
+figma-create-new-file/SKILL.md
+  ai_agent 1-68
+figma-generate-design/assets/figma-small.svg
+  ai_agent 1-3
+train-prototype-creator/assets/templates/list/list-template.js
+  ai_agent 1-462
+train-prototype-creator/agents/openai.yaml
+  ai_agent 1-6
+"train-prototype-creator/assets/svg/middle-selling card-save money.svg"
+  ai_agent 1-4
+figma-create-new-file/agents/openai.yaml
+  ai_agent 1-14
+figma-use/references/maintainers.yml
+  ai_agent 1-12
+figma-use/references/working-with-design-systems/wwds-variables--creating.md
+  ai_agent 1-13
+train-prototype-creator/assets/svg/home-tab-order.svg
+  ai_agent 1-3
+train-prototype-creator/assets/templates/fill/fill-template.html
+  ai_agent 1-23
+train-prototype-creator/assets/templates/middle/manifest.json
+  ai_agent 1-32
+train-prototype-creator/assets/svg/home-tab-personal.svg
+  ai_agent 1-3
+image-gen-skill/image-gen/templates/02_oil_painting.md
+  ai_agent 1-9
+train-prototype-creator/design-spec.md
+  ai_agent 1-220
+train-prototype-creator/assets/templates/occupy/occupy-template.js
+  ai_agent 1-281
+figma-generate-library/scripts/createDocumentationPage.js
+  ai_agent 1-139
+figma-generate-library/references/discovery-phase.md
+  ai_agent 1-518
+figma-code-connect-components/assets/figma-small.svg
+  ai_agent 1-3
+figma-generate-library/references/component-creation.md
+  ai_agent 1-1014
+train-prototype-creator/assets/templates/occupy/occupy-template.css
+  ai_agent 1-511
+"train-prototype-creator/assets/svg/Amount details-arrow-downward.svg"
+  ai_agent 1-3
+train-prototype-creator/assets/svg/list-arrow-adown.svg
+  ai_agent 1-3
+figma-generate-library/LICENSE.TXT
+  ai_agent 1-2
+"train-prototype-creator/assets/svg/list-title bar-ticket-share.svg"
+  ai_agent 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.28-trip",
+  "base_commit_sha": "754d3d45f0955a9e9a30149d148ce9933ba80a1e",
+  "prompts": {},
+  "sessions": {
+    "s_24b8be38db83ce": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f3a86-6f4c-71f0-8178-7f889621b37f",
+        "model": "gpt-5.5-2026-04-24"
+      },
+      "human_author": "lujiedu <lujiedu@trip.com>"
+    }
+  }
+}
